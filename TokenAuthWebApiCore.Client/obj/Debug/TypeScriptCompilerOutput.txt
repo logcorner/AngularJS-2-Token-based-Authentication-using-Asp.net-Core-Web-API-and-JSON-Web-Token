@@ -1,0 +1,6 @@
+C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\TokenAuthWebApiCore.Client\app\app.component.js
+C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\TokenAuthWebApiCore.Client\app\app.component.js.map
+C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\TokenAuthWebApiCore.Client\app\app.module.js
+C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\TokenAuthWebApiCore.Client\app\app.module.js.map
+C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\TokenAuthWebApiCore.Client\app\main.js
+C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\TokenAuthWebApiCore.Client\app\main.js.map
