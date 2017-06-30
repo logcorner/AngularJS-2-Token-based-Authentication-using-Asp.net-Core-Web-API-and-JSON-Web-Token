@@ -37,6 +37,5 @@ C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web
 C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\TokenAuthWebApiCore.Client\bin\System.Net.Http.Formatting.xml
 C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\TokenAuthWebApiCore.Client\bin\System.Web.Http.xml
 C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\TokenAuthWebApiCore.Client\bin\System.Web.Http.WebHost.xml
-C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\TokenAuthWebApiCore.Client\obj\Debug\TokenAuthWebApiCore.Client.csprojResolveAssemblyReference.cache
 C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\TokenAuthWebApiCore.Client\obj\Debug\TokenAuthWebApiCore.Client.dll
 C:\TEAMPROJECT\GIT\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\TokenAuthWebApiCore.Client\obj\Debug\TokenAuthWebApiCore.Client.pdb

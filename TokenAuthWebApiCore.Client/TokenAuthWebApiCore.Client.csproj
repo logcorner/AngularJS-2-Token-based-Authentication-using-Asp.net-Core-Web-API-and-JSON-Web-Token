@@ -85,6 +85,11 @@
   <ItemGroup>
     <Content Include="app\app.component.css" />
     <Content Include="app\app.component.html" />
+    <Content Include="app\products\product-list.component.css" />
+    <Content Include="app\products\product-list.component.html" />
+    <Content Include="app\shared\star.component.css" />
+    <Content Include="app\shared\star.component.html" />
+    <Content Include="app\user\login.component.html" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="styles.css" />
@@ -119,9 +124,24 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\app-routing.module.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\page-not-found.component.ts" />
+    <TypeScriptCompile Include="app\products\product-list.component.ts" />
+    <TypeScriptCompile Include="app\products\product.module.ts" />
+    <TypeScriptCompile Include="app\products\product.service.ts" />
+    <TypeScriptCompile Include="app\products\product.ts" />
+    <TypeScriptCompile Include="app\shared\shared.module.ts" />
+    <TypeScriptCompile Include="app\shared\star.component.ts" />
+    <TypeScriptCompile Include="app\user\auth-guard.service.ts" />
+    <TypeScriptCompile Include="app\user\auth.profile.ts" />
+    <TypeScriptCompile Include="app\user\auth.service.ts" />
+    <TypeScriptCompile Include="app\user\login.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\user\profile.ts" />
+    <TypeScriptCompile Include="app\user\user.module.ts" />
+    <TypeScriptCompile Include="app\user\user.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

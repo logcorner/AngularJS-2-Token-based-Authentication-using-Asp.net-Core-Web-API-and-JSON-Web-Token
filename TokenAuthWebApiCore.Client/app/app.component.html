@@ -1,8 +1,62 @@
-﻿<h1>Hello {{name}}</h1>
-<article>This template holds the TypeScript source code of the <a href="https://angular.io/docs/ts/latest/quickstart.html" target="_blank">angular.io quickstart</a>, for good starting Angular 2 client app with ASP.NET WebApi 2 backend.</article><br />
-<p>See official Angular.io <a href="https://angular.io/docs/ts/latest/" target="_blank">documentation</a>.</p>
-<p>See cookbook <a href="https://angular.io/docs/ts/latest/cookbook/visual-studio-2015.html" target="_blank">Visual Studio QuickStart</a>.</p>
+<span class="glyphicon glyphicon-refresh glyphicon-spin spinner" *ngIf="loading"></span>
+<div>
+   
+	<nav class="navbar navbar-default ">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">EduSync</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				
+				<ul class="nav navbar-nav navbar-right">
+					<li *ngIf="authService.isLoggedIn()">
+						<a>Welcome {{ authService.currentUser.userName }}</a>
+					</li>
+					<!--<li *ngIf="!messageService.isDisplayed">
+						<a (click)="displayMessages()">Show Messages</a>
+					</li>
+					<li *ngIf="messageService.isDisplayed">
+						<a (click)="hideMessages()">Hide Messages</a>
+					</li>-->
+					<li >
+						<a [routerLink]="['/events']">events</a>
+					</li>
+					<li *ngIf="!authService.isLoggedIn()">
+						<a [routerLink]="['/login']">Log In</a>
+					</li>
+					<li *ngIf="authService.isLoggedIn()">
+						<a (click)="logOut()">Log Out</a>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<ul class="nav navbar-nav">
+					<li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+						<a [routerLink]="['/products']">Product List</a>
+					</li>
+					<li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+						<a [routerLink]="['/groups']">group List</a>
+					</li>
 
-<p>This template <a href="https://github.com/Burgyn/TokenAuthWebApiCore.Client" target="_blank">GitHub repository</a>.</p>
-<br />
-<footer><a href="https://twitter.com/MinoMartiniak" target="_blank">Miňo Martiniak</a></footer>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+    <div class="container">
+		
+        <div class="row">
+            <div class="col-md-10">
+                <router-outlet></router-outlet>
+            </div>
+            <div class="col-md-2">
+                <router-outlet name="popup"></router-outlet>
+            </div>
+        </div> 
+    </div>
+</div>
