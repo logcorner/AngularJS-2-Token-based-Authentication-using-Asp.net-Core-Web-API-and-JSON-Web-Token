@@ -21,13 +21,13 @@ export class ProductListComponent implements OnInit {
     constructor(private productService: ProductService,
                 private route: ActivatedRoute) { }
 
-    toggleImage(): void {
-        this.showImage = !this.showImage;
-    }
+    //toggleImage(): void {
+    //    this.showImage = !this.showImage;
+    //}
 
     ngOnInit(): void {
-        this.listFilter = this.route.snapshot.queryParams['filterBy'] || '';
-        this.showImage = this.route.snapshot.queryParams['showImage'] === 'true';
+        //this.listFilter = this.route.snapshot.queryParams['filterBy'] || '';
+        //this.showImage = this.route.snapshot.queryParams['showImage'] === 'true';
 
         this.productService.getProducts()
                 .subscribe(products => this.products = products,

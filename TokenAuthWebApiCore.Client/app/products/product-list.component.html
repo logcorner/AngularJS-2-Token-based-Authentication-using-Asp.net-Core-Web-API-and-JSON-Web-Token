@@ -8,16 +8,16 @@
         <div class="row">
             <div class="col-md-2">Filter by:</div>
             <div class="col-md-4">
-                <input type="text" [(ngModel)]="listFilter" />
+                <!--<input type="text" [(ngModel)]="listFilter" />-->
             </div>
         </div>
-        <div class="row" *ngIf="listFilter">
+        <div class="row" >
             <div class="col-md-6">
-                <h3>Filtered by: {{listFilter}} </h3>
+                <!--<h3>Filtered by: {{listFilter}} </h3>-->
             </div>
         </div>
 
-        <div class="has-error" *ngIf="errorMessage">{{errorMessage}}</div>
+        <!--<div class="has-error" *ngIf="errorMessage">{{errorMessage}}</div>-->
 
         <div class="table-responsive">
             <table class="table"
@@ -25,12 +25,12 @@
                 <thead>
                     <tr>
                         <th>
-                            <button class="btn btn-primary"
+                            <!--<button class="btn btn-primary"
                                 (click)="toggleImage()">
                                 {{showImage ? "Hide" : "Show"}} Image
-                            </button>
+                            </button>-->
                         </th>
-                        <th>Product</th>
+                        <!--<th>Product</th>-->
                         <th>Code</th>
                         <th>Available</th>
                         <th>Price</th>
@@ -38,25 +38,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products | productFilter:listFilter">
+                    <tr *ngFor="let product of products ">
                         <td>
-                            <img *ngIf="showImage && product.imageUrl"
+                            <!--<img *ngIf="showImage && product.imageUrl"
                                  [src]="product.imageUrl"
                                  [title]="product.productName | uppercase"
                                  [style.width.px]="imageWidth" 
-                                 [style.margin.px]="imageMargin">
+                                 [style.margin.px]="imageMargin">-->
                         </td>
-                        <td><a [routerLink]="['/products', product.id]"
+                        <!--<td><a [routerLink]="['/products', product.id]"
                                [queryParams]="{filterBy: listFilter, showImage: showImage}">
                             {{product.productName}}
                             </a>
-                        </td>
-                        <td>{{ product.productCode | lowercase }}</td>
+                        </td>-->
+                        <td>{{ product.productCode  }}</td>
                         <td>{{ product.releaseDate }}</td>
-                        <td>{{ product.price | currency:"USD":true:"1.2-2" }}</td>
+                        <td>{{ product.price  }}</td>
                         <td>
-                            <ai-star [rating]="product.starRating">
-                            </ai-star>
+                            <!--<ai-star [rating]="product.starRating">
+                            </ai-star>-->
                        </td>
                        <td>
                             <a class="btn btn-primary"

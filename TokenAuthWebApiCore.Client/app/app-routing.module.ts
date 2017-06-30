@@ -16,7 +16,7 @@ import { AuthGuard } from './user/auth-guard.service';
 				data: { preload: true },
 				loadChildren: 'app/products/product.module#ProductModule'
 			},
-			{ path: '', redirectTo: 'welcome', pathMatch: 'full' },
+			{ path: '', redirectTo: 'products', pathMatch: 'full' },
 			{ path: '**', component: PageNotFoundComponent }
 		], /*{ enableTracing: true, preloadingStrategy: SelectiveStrategy }*/)
 	],
