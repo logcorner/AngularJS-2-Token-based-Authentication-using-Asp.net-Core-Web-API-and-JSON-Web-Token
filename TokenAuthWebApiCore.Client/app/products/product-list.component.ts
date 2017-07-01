@@ -31,6 +31,6 @@ export class ProductListComponent implements OnInit {
 
         this.productService.getProducts()
                 .subscribe(products => this.products = products,
-                           error => this.errorMessage = <any>error);
+			error => console.log(error));
     }
 }

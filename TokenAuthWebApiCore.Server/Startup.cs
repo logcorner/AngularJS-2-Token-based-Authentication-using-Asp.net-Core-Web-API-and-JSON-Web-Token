@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Threading.Tasks;
 using TokenAuthWebApiCore.Server.Models;
+using TokenAuthWebApiCore.Server.Repository;
 
 namespace TokenAuthWebApiCore.Server
 {
@@ -53,6 +54,18 @@ namespace TokenAuthWebApiCore.Server
 				};
 			}).AddEntityFrameworkStores<SecurityContext>()
 			.AddDefaultTokenProviders();
+
+			services.AddTransient<ProductRepository, ProductRepository>();
+
+			services.AddCors(cfg =>
+			{
+				cfg.AddPolicy("AnyGET", bldr =>
+				{
+					bldr.AllowAnyHeader()
+						.WithMethods("GET")
+						.AllowAnyOrigin();
+				});
+			});
 		}
 
 		public virtual void SetUpDataBase(IServiceCollection services)

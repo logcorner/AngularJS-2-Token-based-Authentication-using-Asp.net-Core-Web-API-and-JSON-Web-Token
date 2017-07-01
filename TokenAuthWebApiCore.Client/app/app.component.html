@@ -1,6 +1,6 @@
 <span class="glyphicon glyphicon-refresh glyphicon-spin spinner" *ngIf="loading"></span>
 <div>
-   
+
 	<nav class="navbar navbar-default ">
 		<div class="container">
 			<div class="navbar-header">
@@ -12,7 +12,7 @@
 				<a class="navbar-brand" href="/">EduSync</a>
 			</div>
 			<div class="navbar-collapse collapse">
-				
+
 				<ul class="nav navbar-nav navbar-right">
 					<li *ngIf="authService.isLoggedIn()">
 						<a>Welcome {{ authService.currentUser.userName }}</a>
@@ -23,9 +23,7 @@
 					<li *ngIf="messageService.isDisplayed">
 						<a (click)="hideMessages()">Hide Messages</a>
 					</li>-->
-					<li >
-						<a [routerLink]="['/events']">events</a>
-					</li>
+				
 					<li *ngIf="!authService.isLoggedIn()">
 						<a [routerLink]="['/login']">Log In</a>
 					</li>
@@ -39,24 +37,20 @@
 					<li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
 						<a [routerLink]="['/products']">Product List</a>
 					</li>
-					<li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-						<a [routerLink]="['/groups']">group List</a>
-					</li>
-
 				</ul>
 			</div>
 		</div>
 	</nav>
-	
-    <div class="container">
-		
-        <div class="row">
-            <div class="col-md-10">
-                <router-outlet></router-outlet>
-            </div>
-            <div class="col-md-2">
-                <router-outlet name="popup"></router-outlet>
-            </div>
-        </div> 
-    </div>
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-10">
+				<router-outlet></router-outlet>
+			</div>
+			<div class="col-md-2">
+				<router-outlet name="popup"></router-outlet>
+			</div>
+		</div>
+	</div>
 </div>
