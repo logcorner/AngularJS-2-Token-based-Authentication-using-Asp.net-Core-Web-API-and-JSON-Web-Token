@@ -11,18 +11,20 @@ using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using TokenAuthWebApiCore.Server.Filters;
 using TokenAuthWebApiCore.Server.Models;
 
 namespace TokenAuthWebApiCore.Server.Controllers
 {
+	[EnableCors("AngularClient")]
 	[Route("api/auth")]
 	public class AuthController : Controller
 	{
 		private readonly UserManager<MyUser> _userManager;
-		private IPasswordHasher<MyUser> _passwordHasher;
-		private IConfigurationRoot _configurationRoot;
-		private ILogger<AuthController> _logger;
+		private readonly IPasswordHasher<MyUser> _passwordHasher;
+		private readonly IConfigurationRoot _configurationRoot;
+		private readonly ILogger<AuthController> _logger;
 
 		public AuthController(UserManager<MyUser> userManager, SignInManager<MyUser> signInManager, RoleManager<MyRole> roleManager
 			, IPasswordHasher<MyUser> passwordHasher, IConfigurationRoot configurationRoot, ILogger<AuthController> logger)
@@ -61,7 +63,7 @@ namespace TokenAuthWebApiCore.Server.Controllers
 		}
 
 		[ValidateForm]
-		[HttpPost("CreateToken")]
+		[HttpPost]
 		[Route("token")]
 		public async Task<IActionResult> CreateToken([FromBody] LoginViewModel model)
 		{

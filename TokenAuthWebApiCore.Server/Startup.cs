@@ -65,6 +65,13 @@ namespace TokenAuthWebApiCore.Server
 						.WithMethods("GET")
 						.AllowAnyOrigin();
 				});
+
+				cfg.AddPolicy("AngularClient", bldr =>
+				{
+					bldr.AllowAnyHeader()
+						.AllowAnyMethod()
+						.WithOrigins("http://localhost:3276");
+				});
 			});
 		}
 

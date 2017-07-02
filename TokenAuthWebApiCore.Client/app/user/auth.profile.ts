@@ -1,65 +1,56 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate } from '@angular/router';
-import {  Headers } from '@angular/http';
+import { Router } from '@angular/router';
+import { Headers } from '@angular/http';
 import { IProfile } from './profile';
 
 @Injectable()
-export class AuthProfile  {
-    userProfile: IProfile = {
-        access_token: '',
-        userName: '',
-        refresh_token: '',
-        expires_in :'',
-        header  : null
-     };
-  constructor(private router: Router) {
-      
-  }
+export class AuthProfile {
+	userProfile: IProfile = {
+		accessToken: '',
+		userName: '',
+		refreshToken: '',
+		expiresIn: '',
+		header: null,
+		idToken: ''
+	};
+	constructor(private router: Router) {
+	}
 
-  //canActivate() {
-  //  if (tokenNotExpired()) {
-  //    return true;
-  //  }
+	setProfile(profile: IProfile): void {
+		sessionStorage.setItem('access_token', profile.accessToken);
+		sessionStorage.setItem('userName', profile.userName);
+		sessionStorage.setItem('refresh_token', profile.refreshToken);
+		sessionStorage.setItem('expires_in', profile.expiresIn);
+		sessionStorage.setItem('id_token', profile.idToken);
+	}
 
-  //  this.router.navigate(['/login']);
-  //  return false;
-  //}
+	getProfile(authorizationOnly: boolean = false): IProfile {
+		let headers = new Headers({});
+		if (authorizationOnly === false) {
+			headers = new Headers({ 'Content-Type': 'application/json' });
+		}
+		var accessToken = sessionStorage.getItem('access_token');
 
-  setProfile(profile: IProfile): void {
-      sessionStorage.setItem('access_token', profile.access_token);
-      sessionStorage.setItem('userName', profile.userName);
-      sessionStorage.setItem('refresh_token', profile.refresh_token);
-      sessionStorage.setItem('expires_in', profile.expires_in);
+		if (accessToken) {
+			headers.append('Authorization', 'Bearer ' + accessToken);
+			this.userProfile.accessToken = accessToken;
+			this.userProfile.userName = sessionStorage.getItem('userName');
+			this.userProfile.expiresIn = sessionStorage.getItem('expires_in');
+			this.userProfile.refreshToken = sessionStorage.getItem('refresh_token');
+		}
+		this.userProfile.header = headers;
+		return this.userProfile;
+	}
 
-  }
-
-  getProfile(authorizationOnly: boolean = false): IProfile {
-      let headers = new Headers({});
-      if (authorizationOnly == false)
-      {
-           headers = new Headers({ 'Content-Type': 'application/json' });
-      }
-      var accessToken = sessionStorage.getItem('access_token');
-      
-      if (accessToken) {
-          headers.append('Authorization', 'Bearer ' + accessToken);
-          this.userProfile.access_token = accessToken;
-          this.userProfile.userName = sessionStorage.getItem('userName');
-          this.userProfile.expires_in = sessionStorage.getItem('expires_in');
-          this.userProfile.refresh_token = sessionStorage.getItem('refresh_token');
-      }
-      this.userProfile.header = headers;
-      return this.userProfile;
-  }
-
-  resetProfile(): IProfile {
-	  sessionStorage.removeItem('access_token');
-	  return {
-		  access_token: null,
-		  userName: null,
-          refresh_token: null,
-          expires_in : null,
-		  header: null
-	  };
-  }
+	resetProfile(): IProfile {
+		sessionStorage.removeItem('access_token');
+		return {
+			accessToken: '',
+			userName: '',
+			refreshToken: '',
+			expiresIn: '',
+			header: null,
+			idToken: ''
+		};
+	}
 }

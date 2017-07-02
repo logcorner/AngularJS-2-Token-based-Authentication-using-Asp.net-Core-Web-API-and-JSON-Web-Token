@@ -19,13 +19,9 @@ export class LoginComponent {
             let userName = loginForm.form.value.userName;
             let password = loginForm.form.value.password;
 			var result = this.authService.login(userName, password);
-
-
-			//var currentUser = sessionStorage.getItem('currentUser');
-		    //var token = currentUser.access_token;
-			console.log('this.authService._redirectUrl = ' + this.authService._redirectUrl);
-            if (this.authService._redirectUrl) {
-				this.router.navigateByUrl(this.authService._redirectUrl);
+			console.log('this.authService._redirectUrl = ' + this.authService.redirectUrl);
+            if (this.authService.redirectUrl) {
+				this.router.navigateByUrl(this.authService.redirectUrl);
             } else {
                 this.router.navigate(['/products']);
             }
