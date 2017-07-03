@@ -46,6 +46,26 @@ export class AuthService {
 			},
 			error => this.errorMessage = <any>error);
 	}
+	register(userName: string, password: string, confirmPassword: string): void {
+		if (!userName || !password) {
+			return;
+		}
+		let options = new RequestOptions(
+			{ headers: contentHeaders });
+
+		var credentials = {
+			email: userName,
+			password: password,
+			confirmPassword: confirmPassword
+		};
+
+		this.http.post(this.baseUrl + '/register', credentials, options)
+			.subscribe((res) => {
+				this.userProfile = res.json();
+				this.login(userName, password);
+			},
+			error => this.errorMessage = <any>error);
+	}
 
 	logout(): void {
 		this.currentUser = null;

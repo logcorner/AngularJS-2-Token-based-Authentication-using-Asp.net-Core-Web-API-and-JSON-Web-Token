@@ -18,7 +18,7 @@ import { AuthGuard } from './user/auth-guard.service';
 			},
 			{ path: '', redirectTo: 'products', pathMatch: 'full' },
 			{ path: '**', component: PageNotFoundComponent }
-		], /*{ enableTracing: true, preloadingStrategy: SelectiveStrategy }*/)
+		] /*{ enableTracing: true, preloadingStrategy: SelectiveStrategy }*/)
 	],
 	//providers: [ SelectiveStrategy ],
 	exports: [RouterModule]

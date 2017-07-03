@@ -23,9 +23,12 @@
 					<li *ngIf="messageService.isDisplayed">
 						<a (click)="hideMessages()">Hide Messages</a>
 					</li>-->
-				
+
 					<li *ngIf="!authService.isLoggedIn()">
 						<a [routerLink]="['/login']">Log In</a>
+					</li>
+					<li *ngIf="!authService.isLoggedIn()">
+						<a [routerLink]="['/signup']">Register</a>
 					</li>
 					<li *ngIf="authService.isLoggedIn()">
 						<a (click)="logOut()">Log Out</a>

@@ -14,7 +14,9 @@ var router_1 = require("@angular/router");
 var auth_service_1 = require("./user/auth.service");
 //import { MessageService } from './messages/message.service';
 var AppComponent = (function () {
-    function AppComponent(authService, router) {
+    function AppComponent(authService, router
+        //private messageService: MessageService
+    ) {
         var _this = this;
         this.authService = authService;
         this.router = router;
@@ -54,7 +56,9 @@ AppComponent = __decorate([
         templateUrl: './app/app.component.html'
     }),
     __metadata("design:paramtypes", [auth_service_1.AuthService,
-        router_1.Router])
+        router_1.Router
+        //private messageService: MessageService
+    ])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

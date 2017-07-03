@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +12,6 @@ using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Cors;
 using TokenAuthWebApiCore.Server.Filters;
 using TokenAuthWebApiCore.Server.Models;
 
@@ -42,7 +42,7 @@ namespace TokenAuthWebApiCore.Server.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				return BadRequest();
+				return BadRequest(ModelState);
 			}
 			var user = new MyUser()
 			{

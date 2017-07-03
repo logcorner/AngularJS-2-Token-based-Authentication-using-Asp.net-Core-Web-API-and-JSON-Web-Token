@@ -47,7 +47,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../user/auth.service';
 
 @Component({
-	templateUrl: './app/user/login.component.html'
+	templateUrl: './app/login/login.html'
 })
 export class Login {
 	errorMessage: string;

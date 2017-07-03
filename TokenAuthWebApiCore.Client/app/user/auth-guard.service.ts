@@ -5,22 +5,21 @@ import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad {
+	constructor(private authService: AuthService,
+		private router: Router) { }
 
-    constructor(private authService: AuthService,
-                private router: Router) { }
-
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 		var result = this.checkLoggedIn(state.url);
 
 		console.log('canActivate: ' + result + ',state.url' + state.url);
 		return result;
-    }
+	}
 
-    canLoad(route: Route): boolean {
-        return this.checkLoggedIn(route.path);
-    }
+	canLoad(route: Route): boolean {
+		return this.checkLoggedIn(route.path);
+	}
 
-    checkLoggedIn(url: string): boolean {
+	checkLoggedIn(url: string): boolean {
 		/*if (this.authService.isLoggedIn()) {
             return true;
         }
@@ -28,5 +27,5 @@ export class AuthGuard implements CanActivate, CanLoad {
         this.router.navigate(['/login']);
         return false;*/
 		return true;
-    }
+	}
 }

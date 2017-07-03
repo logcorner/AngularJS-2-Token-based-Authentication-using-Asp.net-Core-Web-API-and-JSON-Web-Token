@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
+// Imports for loading & configuring the in-memory web api
 //import { ProductData } from './products/product-data';
 var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");

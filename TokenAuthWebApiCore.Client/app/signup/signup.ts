@@ -1,38 +1,35 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Http } from '@angular/http';
-import { contentHeaders } from '../common/headers';
 
-const styles = require('./signup.css');
-const template = require('./signup.html');
+import { AuthService } from '../user/auth.service';
 
 @Component({
-	selector: 'signup',
-	template: template,
-	styles: [styles]
+	templateUrl: './app/signup/signup.html'
 })
 export class Signup {
-	constructor(public router: Router, public http: Http) {
-	}
+	errorMessage: string;
+	pageTitle = 'signup';
 
-	signup(event: any, username: string, password: string) {
-		event.preventDefault();
-		let body = JSON.stringify({ username, password });
-		this.http.post('http://localhost:3001/users', body, { headers: contentHeaders })
-			.subscribe(
-			response => {
-				localStorage.setItem('id_token', response.json().id_token);
-				this.router.navigate(['home']);
-			},
-			error => {
-				alert(error.text());
-				console.log(error.text());
+	constructor(private authService: AuthService,
+		private router: Router) { }
+
+	register(signupForm: NgForm) {
+		//event.preventDefault();
+		if (signupForm && signupForm.valid) {
+			let userName = signupForm.form.value.userName;
+			let password = signupForm.form.value.password;
+			let confirmPassword = signupForm.form.value.confirmPassword;
+			var result = this.authService.register(userName, password, confirmPassword);
+			debugger;
+			console.log('this.authService._redirectUrl = ' + this.authService.redirectUrl);
+			if (this.authService.redirectUrl) {
+				this.router.navigateByUrl(this.authService.redirectUrl);
+			} else {
+				this.router.navigate(['/products']);
 			}
-			);
-	}
-
-	login(event: any) {
-		event.preventDefault();
-		this.router.navigate(['login']);
+		} else {
+			this.errorMessage = 'Please enter a user name and password.';
+		};
 	}
 }

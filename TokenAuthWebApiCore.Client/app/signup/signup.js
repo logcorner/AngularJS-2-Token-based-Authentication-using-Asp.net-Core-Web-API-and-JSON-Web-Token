@@ -11,41 +11,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var http_1 = require("@angular/http");
-var headers_1 = require("../common/headers");
-var styles = require('./signup.css');
-var template = require('./signup.html');
+var auth_service_1 = require("../user/auth.service");
 var Signup = (function () {
-    function Signup(router, http) {
+    function Signup(authService, router) {
+        this.authService = authService;
         this.router = router;
-        this.http = http;
+        this.pageTitle = 'signup';
     }
-    Signup.prototype.signup = function (event, username, password) {
-        var _this = this;
-        event.preventDefault();
-        var body = JSON.stringify({ username: username, password: password });
-        this.http.post('http://localhost:3001/users', body, { headers: headers_1.contentHeaders })
-            .subscribe(function (response) {
-            localStorage.setItem('id_token', response.json().id_token);
-            _this.router.navigate(['home']);
-        }, function (error) {
-            alert(error.text());
-            console.log(error.text());
-        });
-    };
-    Signup.prototype.login = function (event) {
-        event.preventDefault();
-        this.router.navigate(['login']);
+    Signup.prototype.register = function (signupForm) {
+        //event.preventDefault();
+        if (signupForm && signupForm.valid) {
+            var userName = signupForm.form.value.userName;
+            var password = signupForm.form.value.password;
+            var confirmPassword = signupForm.form.value.confirmPassword;
+            var result = this.authService.register(userName, password, confirmPassword);
+            debugger;
+            console.log('this.authService._redirectUrl = ' + this.authService.redirectUrl);
+            if (this.authService.redirectUrl) {
+                this.router.navigateByUrl(this.authService.redirectUrl);
+            }
+            else {
+                this.router.navigate(['/products']);
+            }
+        }
+        else {
+            this.errorMessage = 'Please enter a user name and password.';
+        }
+        ;
     };
     return Signup;
 }());
 Signup = __decorate([
     core_1.Component({
-        selector: 'signup',
-        template: template,
-        styles: [styles]
+        templateUrl: './app/signup/signup.html'
     }),
-    __metadata("design:paramtypes", [router_1.Router, http_1.Http])
+    __metadata("design:paramtypes", [auth_service_1.AuthService,
+        router_1.Router])
 ], Signup);
 exports.Signup = Signup;
 //# sourceMappingURL=signup.js.map

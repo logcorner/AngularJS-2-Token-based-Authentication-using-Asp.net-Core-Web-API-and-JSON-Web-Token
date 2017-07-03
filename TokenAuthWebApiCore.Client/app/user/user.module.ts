@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 
 //import { LoginComponent } from './login.component';
 import { Login } from '../login/login';
+import { Signup } from '../signup/signup';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { AuthProfile } from './auth.profile';
@@ -10,19 +11,21 @@ import { AuthProfile } from './auth.profile';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    RouterModule.forChild([
-		{ path: 'login', component: Login }
-    ])
-  ],
-  declarations: [
-	  Login
-  ],
-  providers: [
-    AuthService,
-    AuthGuard,
-    AuthProfile
-  ]
+	imports: [
+		SharedModule,
+		RouterModule.forChild([
+			{ path: 'login', component: Login },
+			{ path: 'signup', component: Signup }
+		])
+	],
+	declarations: [
+		Login,
+		Signup
+	],
+	providers: [
+		AuthService,
+		AuthGuard,
+		AuthProfile
+	]
 })
 export class UserModule { }
