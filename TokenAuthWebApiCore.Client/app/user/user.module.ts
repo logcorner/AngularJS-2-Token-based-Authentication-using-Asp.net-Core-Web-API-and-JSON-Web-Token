@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { Login } from '../login/login';
 import { Signup } from '../signup/signup';
 import { AuthService } from './auth.service';
-import { AuthGuard } from './auth-guard.service';
+import { AuthGuard } from '../common/auth.guard';
 import { AuthProfile } from './auth.profile';
 
 import { SharedModule } from '../shared/shared.module';

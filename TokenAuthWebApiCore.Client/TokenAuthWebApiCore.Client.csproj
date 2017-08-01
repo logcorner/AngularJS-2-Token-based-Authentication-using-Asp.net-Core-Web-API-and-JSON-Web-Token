@@ -140,7 +140,6 @@
     <TypeScriptCompile Include="app\shared\star.component.ts" />
     <TypeScriptCompile Include="app\signup\index.ts" />
     <TypeScriptCompile Include="app\signup\signup.ts" />
-    <TypeScriptCompile Include="app\user\auth-guard.service.ts" />
     <TypeScriptCompile Include="app\user\auth.profile.ts" />
     <TypeScriptCompile Include="app\user\auth.service.ts" />
     <TypeScriptCompile Include="app\user\login.component.ts" />

@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 
 //import { WelcomeComponent } from './home/welcome.component';
 import { PageNotFoundComponent } from './page-not-found.component';
-import { AuthGuard } from './user/auth-guard.service';
+import { AuthGuard } from './common/auth.guard';
 //import { SelectiveStrategy } from './selective-strategy.service';
 
 @NgModule({

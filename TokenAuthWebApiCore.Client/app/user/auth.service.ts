@@ -8,6 +8,7 @@ import { AuthProfile } from './auth.profile';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { JwtHelper } from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
@@ -23,6 +24,20 @@ export class AuthService {
 
 	isLoggedIn() {
 		return false;
+	}
+
+	private jwtHelper: JwtHelper = new JwtHelper();
+	private token = localStorage.getItem('auth_token');
+
+	isExpired() {
+		debugger;
+		if (this.token === null) {
+			return true;
+		}
+		this.jwtHelper.decodeToken(this.token);
+		this.jwtHelper.getTokenExpirationDate(this.token);
+		this.jwtHelper.isTokenExpired(this.token);
+		return this.jwtHelper.isTokenExpired(this.token);
 	}
 
 	login(userName: string, password: string): void {

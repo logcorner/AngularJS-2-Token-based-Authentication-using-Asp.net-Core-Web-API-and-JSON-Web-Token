@@ -63,6 +63,7 @@ var Login = (function () {
             var result = this.authService.login(userName, password);
             debugger;
             console.log('this.authService._redirectUrl = ' + this.authService.redirectUrl);
+            debugger;
             if (this.authService.redirectUrl) {
                 this.router.navigateByUrl(this.authService.redirectUrl);
             }

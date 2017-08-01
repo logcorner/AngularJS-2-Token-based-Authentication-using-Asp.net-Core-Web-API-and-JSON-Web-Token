@@ -12,17 +12,14 @@ import { ProductService } from './product.service';
 			{
 				path: '',
 				component: ProductListComponent
-			},
-
+			}
 		])
 	],
 	declarations: [
-		ProductListComponent,
-
+		ProductListComponent
 	],
 	providers: [
-		ProductService,
-
+		ProductService
 	]
 })
 export class ProductModule { }

@@ -92,7 +92,7 @@ namespace TokenAuthWebApiCore.Server.Controllers
 						issuer: _configurationRoot["JwtSecurityToken:Issuer"],
 						audience: _configurationRoot["JwtSecurityToken:Audience"],
 						claims: claims,
-						expires: DateTime.UtcNow.AddMinutes(60),
+						expires: DateTime.UtcNow.AddDays(1),
 						signingCredentials: signingCredentials
 						);
 					return Ok(new

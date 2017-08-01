@@ -22,6 +22,8 @@ export class AuthProfile {
 		sessionStorage.setItem('refresh_token', profile.refreshToken);
 		sessionStorage.setItem('expires_in', profile.expiresIn);
 		sessionStorage.setItem('id_token', profile.idToken);
+
+		localStorage.setItem('id_token', profile.idToken);
 	}
 
 	getProfile(authorizationOnly: boolean = false): IProfile {
