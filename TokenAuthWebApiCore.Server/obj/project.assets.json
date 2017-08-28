@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETCoreApp,Version=v1.1": {
       "Libuv/1.9.1": {
@@ -10563,19 +10563,37 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
       "projectUniqueName": "C:\\TEAMPROJECT\\GIT\\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\\TokenAuthWebApiCore.Server\\TokenAuthWebApiCore.Server.csproj",
       "projectName": "TokenAuthWebApiCore.Server",
       "projectPath": "C:\\TEAMPROJECT\\GIT\\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\\TokenAuthWebApiCore.Server\\TokenAuthWebApiCore.Server.csproj",
+      "packagesPath": "C:\\Users\\TOCANE\\.nuget\\packages\\",
       "outputPath": "C:\\TEAMPROJECT\\GIT\\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\\TokenAuthWebApiCore.Server\\obj\\",
       "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\TOCANE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {}
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {

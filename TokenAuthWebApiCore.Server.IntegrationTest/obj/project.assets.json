@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETCoreApp,Version=v1.1": {
       "Libuv/1.9.1": {
@@ -4629,6 +4629,12 @@
           "Microsoft.EntityFrameworkCore.Tools": "1.1.1",
           "Microsoft.Extensions.Logging.Debug": "1.1.2",
           "Microsoft.NETCore.App": "1.1.2"
+        },
+        "compile": {
+          "bin/placeholder/TokenAuthWebApiCore.Server.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TokenAuthWebApiCore.Server.dll": {}
         }
       }
     }
@@ -11756,15 +11762,28 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
       "projectUniqueName": "C:\\TEAMPROJECT\\GIT\\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\\TokenAuthWebApiCore.Server.IntegrationTest\\TokenAuthWebApiCore.Server.IntegrationTest.csproj",
       "projectName": "TokenAuthWebApiCore.Server.IntegrationTest",
       "projectPath": "C:\\TEAMPROJECT\\GIT\\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\\TokenAuthWebApiCore.Server.IntegrationTest\\TokenAuthWebApiCore.Server.IntegrationTest.csproj",
+      "packagesPath": "C:\\Users\\TOCANE\\.nuget\\packages\\",
       "outputPath": "C:\\TEAMPROJECT\\GIT\\AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token\\TokenAuthWebApiCore.Server.IntegrationTest\\obj\\",
       "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\TOCANE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
@@ -11773,6 +11792,11 @@
             }
           }
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
