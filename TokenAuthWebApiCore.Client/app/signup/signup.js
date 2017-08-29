@@ -37,6 +37,7 @@ var Signup = (function () {
                     _this.router.navigate(['/products']);
                 }
             }, function (error) {
+                var results = error['_body'];
                 _this.errorMessage = error.statusText + ' ' +
                     error.text();
                 debugger;

@@ -41,7 +41,7 @@ export class AuthService {
         return this.jwtHelper.isTokenExpired(this.token);
     }
 
-    login(userName: string, password: string): void {
+    login(userName: string, password: string) {
         if (!userName || !password) {
             return;
         }
@@ -54,13 +54,13 @@ export class AuthService {
             password: password
         };
 
-        this.http.post(this.baseUrl + '/token', credentials, options)
-            .subscribe((res) => {
-                this.userProfile = res.json();
+        return this.http.post(this.baseUrl + '/token', credentials, options)
+            .map((response: Response) => {
+                debugger;
+                this.userProfile = response.json();
                 this.authProfile.setProfile(this.userProfile);
-                this.router.navigate([this.redirectUrl]);
-            },
-            error => this.errorMessage = <any>error);
+                //this.router.navigate([this.redirectUrl]);
+            }).catch(this.handleError);
     }
     register(userName: string, password: string, confirmPassword: string) {
         if (!userName || !password) {
@@ -82,6 +82,7 @@ export class AuthService {
             }).catch(this.handleError);
     }
     private handleError(error: Response) {
+        debugger;
         return Observable.throw(error);
     }
 

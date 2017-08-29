@@ -17,97 +17,97 @@ using TokenAuthWebApiCore.Server.Models;
 
 namespace TokenAuthWebApiCore.Server.Controllers
 {
-	[EnableCors("AngularClient")]
-	[Route("api/auth")]
-	public class AuthController : Controller
-	{
-		private readonly UserManager<MyUser> _userManager;
-		private readonly IPasswordHasher<MyUser> _passwordHasher;
-		private readonly IConfigurationRoot _configurationRoot;
-		private readonly ILogger<AuthController> _logger;
+    [EnableCors("AngularClient")]
+    [Route("api/auth")]
+    public class AuthController : Controller
+    {
+        private readonly UserManager<MyUser> _userManager;
+        private readonly IPasswordHasher<MyUser> _passwordHasher;
+        private readonly IConfigurationRoot _configurationRoot;
+        private readonly ILogger<AuthController> _logger;
 
-		public AuthController(UserManager<MyUser> userManager, SignInManager<MyUser> signInManager, RoleManager<MyRole> roleManager
-			, IPasswordHasher<MyUser> passwordHasher, IConfigurationRoot configurationRoot, ILogger<AuthController> logger)
-		{
-			_userManager = userManager;
-			_logger = logger;
-			_passwordHasher = passwordHasher;
-			_configurationRoot = configurationRoot;
-		}
+        public AuthController(UserManager<MyUser> userManager, SignInManager<MyUser> signInManager, RoleManager<MyRole> roleManager
+            , IPasswordHasher<MyUser> passwordHasher, IConfigurationRoot configurationRoot, ILogger<AuthController> logger)
+        {
+            _userManager = userManager;
+            _logger = logger;
+            _passwordHasher = passwordHasher;
+            _configurationRoot = configurationRoot;
+        }
 
-		[AllowAnonymous]
-		[HttpPost]
-		[Route("register")]
-		public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
-		{
-			if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
-			var user = new MyUser()
-			{
-				UserName = model.Email,
-				Email = model.Email
-			};
-			var result = await _userManager.CreateAsync(user, model.Password);
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var user = new MyUser()
+            {
+                UserName = model.Email,
+                Email = model.Email
+            };
+            var result = await _userManager.CreateAsync(user, model.Password);
 
-			if (result.Succeeded)
-			{
-				return Ok(result);
-			}
-			foreach (var error in result.Errors)
-			{
-				ModelState.AddModelError("error", error.Description);
-			}
-			return BadRequest(result.Errors);
-		}
+            if (result.Succeeded)
+            {
+                return Ok(result);
+            }
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("error", error.Description);
+            }
+            return BadRequest(result.Errors);
+        }
 
-		[ValidateForm]
-		[HttpPost]
-		[Route("token")]
-		public async Task<IActionResult> CreateToken([FromBody] LoginViewModel model)
-		{
-			try
-			{
-				var user = await _userManager.FindByNameAsync(model.Email);
-				if (user == null)
-				{
-					return Unauthorized();
-				}
-				if (_passwordHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password) == PasswordVerificationResult.Success)
-				{
-					var userClaims = await _userManager.GetClaimsAsync(user);
+        [ValidateForm]
+        [HttpPost]
+        [Route("token")]
+        public async Task<IActionResult> CreateToken([FromBody] LoginViewModel model)
+        {
+            try
+            {
+                var user = await _userManager.FindByNameAsync(model.Email);
+                if (user == null)
+                {
+                    return Unauthorized();
+                }
+                if (_passwordHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password) == PasswordVerificationResult.Success)
+                {
+                    var userClaims = await _userManager.GetClaimsAsync(user);
 
-					var claims = new[]
-					{
-						new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-						new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-						new Claim(JwtRegisteredClaimNames.Email, user.Email)
-					}.Union(userClaims);
+                    var claims = new[]
+                    {
+                        new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                        new Claim(JwtRegisteredClaimNames.Email, user.Email)
+                    }.Union(userClaims);
 
-					var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configurationRoot["JwtSecurityToken:Key"]));
-					var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
+                    var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configurationRoot["JwtSecurityToken:Key"]));
+                    var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
 
-					var jwtSecurityToken = new JwtSecurityToken(
-						issuer: _configurationRoot["JwtSecurityToken:Issuer"],
-						audience: _configurationRoot["JwtSecurityToken:Audience"],
-						claims: claims,
-						expires: DateTime.UtcNow.AddDays(1),
-						signingCredentials: signingCredentials
-						);
-					return Ok(new
-					{
-						token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
-						expiration = jwtSecurityToken.ValidTo
-					});
-				}
-				return Unauthorized();
-			}
-			catch (Exception ex)
-			{
-				_logger.LogError($"error while creating token: {ex}");
-				return StatusCode((int)HttpStatusCode.InternalServerError, "error while creating token");
-			}
-		}
-	}
+                    var jwtSecurityToken = new JwtSecurityToken(
+                        issuer: _configurationRoot["JwtSecurityToken:Issuer"],
+                        audience: _configurationRoot["JwtSecurityToken:Audience"],
+                        claims: claims,
+                        expires: DateTime.UtcNow.AddDays(1),
+                        signingCredentials: signingCredentials
+                        );
+                    return Ok(new
+                    {
+                        token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
+                        expiration = jwtSecurityToken.ValidTo
+                    });
+                }
+                return Unauthorized();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"error while creating token: {ex}");
+                return StatusCode((int)HttpStatusCode.InternalServerError, "error while creating token");
+            }
+        }
+    }
 }
