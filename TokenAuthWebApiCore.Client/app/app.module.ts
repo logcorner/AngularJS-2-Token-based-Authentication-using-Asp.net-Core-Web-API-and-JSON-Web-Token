@@ -15,21 +15,21 @@ import { UserModule } from './user/user.module';
 //import { EventModule } from './events/event.module';
 
 @NgModule({
-	imports: [
-		BrowserModule,
-		HttpModule,
-		// InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
-		UserModule,
+    imports: [
+        BrowserModule,
+        HttpModule,
+        // InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
+        UserModule,
 
-		//MessageModule,
-		//EventModule,
-		AppRoutingModule
-	],
-	declarations: [
-		AppComponent,
-		//WelcomeComponent,
-		PageNotFoundComponent
-	],
-	bootstrap: [AppComponent]
+        //MessageModule,
+        //EventModule,
+        AppRoutingModule
+    ],
+    declarations: [
+        AppComponent,
+        //WelcomeComponent,
+        PageNotFoundComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

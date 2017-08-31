@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -8,6 +9,7 @@ using TokenAuthWebApiCore.Server.Repository;
 
 namespace TokenAuthWebApiCore.Server.Controllers
 {
+    [Authorize]
     [EnableCors("AnyGET")]
     [Route("api/[controller]")]
     public class ProductController : Controller

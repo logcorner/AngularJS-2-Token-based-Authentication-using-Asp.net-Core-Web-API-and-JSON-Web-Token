@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 //import { tokenNotExpired } from 'angular2-jwt';
-var angular2_jwt_1 = require("angular2-jwt");
+//import { tokenNotExpired } from 'angular2-jwt';
 var auth_service_1 = require("../user/auth.service");
 var AuthGuard = (function () {
     function AuthGuard(router, authService) {
@@ -21,15 +21,15 @@ var AuthGuard = (function () {
     }
     AuthGuard.prototype.canActivate = function (route, state) {
         debugger;
-        if (angular2_jwt_1.tokenNotExpired()) {
-            return true;
-        }
-        if (!this.authService.isExpired()) {
-            return true;
-        }
-        this.authService.redirectUrl = state.url;
-        this.router.navigate(['/login']);
-        return false;
+        //if (tokenNotExpired()) {
+        //    return true;
+        //}
+        //if (!this.authService.isExpired()) {
+        return true;
+        //}
+        //this.authService.redirectUrl = state.url;
+        //this.router.navigate(['/login']);
+        //return false;
     };
     return AuthGuard;
 }());

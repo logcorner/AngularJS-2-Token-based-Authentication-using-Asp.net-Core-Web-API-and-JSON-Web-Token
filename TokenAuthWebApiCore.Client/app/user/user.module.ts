@@ -11,21 +11,21 @@ import { AuthProfile } from './auth.profile';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-	imports: [
-		SharedModule,
-		RouterModule.forChild([
-			{ path: 'login', component: Login },
-			{ path: 'signup', component: Signup }
-		])
-	],
-	declarations: [
-		Login,
-		Signup
-	],
-	providers: [
-		AuthService,
-		AuthGuard,
-		AuthProfile
-	]
+    imports: [
+        SharedModule,
+        RouterModule.forChild([
+            { path: 'login', component: Login },
+            { path: 'signup', component: Signup }
+        ])
+    ],
+    declarations: [
+        Login,
+        Signup
+    ],
+    providers: [
+        AuthService,
+        AuthGuard,
+        AuthProfile
+    ]
 })
 export class UserModule { }
