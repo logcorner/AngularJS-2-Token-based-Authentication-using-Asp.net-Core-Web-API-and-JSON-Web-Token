@@ -9,20 +9,22 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
 import { IProduct } from './product';
-import { AuthService } from '../user/auth.service'
+import { AuthProfile } from '../user/auth.profile'
 
 @Injectable()
 export class ProductService {
     private baseUrl = 'http://localhost:58834/api/product';
 
-    constructor(private http: Http, private authService: AuthService) { }
+    constructor(private http: Http, private authProfile: AuthProfile) { }
 
     getProducts(): Observable<IProduct[]> {
         debugger;
         let options = null;
-        if (this.authService.userProfile != null && this.authService.userProfile != undefined) {
-            let headers = new Headers({ 'Authorization': 'Bearer ' + this.authService.userProfile.token });
-             options = new RequestOptions({ headers: headers });
+        let profile = this.authProfile.getProfile();
+
+        if (profile != null && profile != undefined) {
+            let headers = new Headers({ 'Authorization': 'Bearer ' + profile.token });
+            options = new RequestOptions({ headers: headers });
         }
         let data: Observable<IProduct[]> = this.http.get(this.baseUrl, options)
             .map(res => <IProduct[]>res.json())

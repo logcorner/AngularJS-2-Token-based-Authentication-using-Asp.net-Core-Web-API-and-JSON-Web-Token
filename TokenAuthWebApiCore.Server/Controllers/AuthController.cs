@@ -92,13 +92,14 @@ namespace TokenAuthWebApiCore.Server.Controllers
                         issuer: _configurationRoot["JwtSecurityToken:Issuer"],
                         audience: _configurationRoot["JwtSecurityToken:Audience"],
                         claims: claims,
-                        expires: DateTime.UtcNow.AddDays(1),
+                        expires: DateTime.UtcNow.AddMinutes(5),
                         signingCredentials: signingCredentials
                         );
                     return Ok(new
                     {
-                        token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
-                        expiration = jwtSecurityToken.ValidTo
+                        Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
+                        Expiration = jwtSecurityToken.ValidTo,
+                        Claims = jwtSecurityToken.Claims
                     });
                 }
                 return Unauthorized();

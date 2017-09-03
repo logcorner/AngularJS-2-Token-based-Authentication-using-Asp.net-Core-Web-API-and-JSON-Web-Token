@@ -63,8 +63,6 @@ var Login = (function () {
             var password = loginForm.form.value.password;
             var result = this.authService.login(userName, password).subscribe(function (response) {
                 debugger;
-                //localStorage.setItem('id_token', response.json().id_token);
-                //this.router.navigate(['home']);
                 if (_this.authService.redirectUrl) {
                     _this.router.navigateByUrl(_this.authService.redirectUrl);
                 }
@@ -77,14 +75,6 @@ var Login = (function () {
                     error.text();
                 debugger;
             });
-            //debugger;
-            //console.log('this.authService._redirectUrl = ' + this.authService.redirectUrl);
-            //debugger;
-            //if (this.authService.redirectUrl) {
-            //    this.router.navigateByUrl(this.authService.redirectUrl);
-            //} else {
-            //    this.router.navigate(['/products']);
-            //}
         }
         else {
             this.errorMessage = 'Please enter a user name and password.';

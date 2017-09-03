@@ -63,8 +63,7 @@ export class Login {
             var result = this.authService.login(userName, password).subscribe(
                 response => {
                     debugger;
-                    //localStorage.setItem('id_token', response.json().id_token);
-                    //this.router.navigate(['home']);
+
                     if (this.authService.redirectUrl) {
                         this.router.navigateByUrl(this.authService.redirectUrl);
                     } else {
@@ -78,14 +77,6 @@ export class Login {
                         error.text();
                     debugger;
                 });
-            //debugger;
-            //console.log('this.authService._redirectUrl = ' + this.authService.redirectUrl);
-            //debugger;
-            //if (this.authService.redirectUrl) {
-            //    this.router.navigateByUrl(this.authService.redirectUrl);
-            //} else {
-            //    this.router.navigate(['/products']);
-            //}
         } else {
             this.errorMessage = 'Please enter a user name and password.';
         };
