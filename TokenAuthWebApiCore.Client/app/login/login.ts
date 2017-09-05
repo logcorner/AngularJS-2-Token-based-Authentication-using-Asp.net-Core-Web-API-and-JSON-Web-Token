@@ -81,4 +81,10 @@ export class Login {
             this.errorMessage = 'Please enter a user name and password.';
         };
     }
+
+    //logOut() {
+    //    debugger;
+    //    this.authService.logout();
+    //    this.router.navigate(['/products']);
+    //}
 }
