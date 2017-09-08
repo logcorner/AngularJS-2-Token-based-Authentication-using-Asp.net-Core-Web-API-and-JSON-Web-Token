@@ -10,14 +10,15 @@ import 'rxjs/add/observable/of';
 
 import { IProduct } from './product';
 import { AuthProfile } from '../user/auth.profile'
-
+import { CommonService } from '../shared/common.service'
 @Injectable()
 export class ProductService {
-    private baseUrl = 'http://localhost:58834/api/product';
-
-    constructor(private http: Http, private authProfile: AuthProfile) { }
+    constructor(private http: Http,
+        private authProfile: AuthProfile,
+        private commonService: CommonService) { }
 
     getProducts(): Observable<IProduct[]> {
+        let url = this.commonService.getBaseUrl() + '/product';
         debugger;
         let options = null;
         let profile = this.authProfile.getProfile();
@@ -26,18 +27,11 @@ export class ProductService {
             let headers = new Headers({ 'Authorization': 'Bearer ' + profile.token });
             options = new RequestOptions({ headers: headers });
         }
-        let data: Observable<IProduct[]> = this.http.get(this.baseUrl, options)
+        let data: Observable<IProduct[]> = this.http.get(url, options)
             .map(res => <IProduct[]>res.json())
             .do(data => console.log('getProducts: ' + JSON.stringify(data)))
-            .catch(this.handleError);
+            .catch(this.commonService.handleError);
 
         return data;
-    }
-
-    private handleError(error: Response): Observable<any> {
-        debugger;
-        let errorMessage = error.json();
-        console.error(errorMessage);
-        return Observable.throw(errorMessage.error || 'Server error');
     }
 }

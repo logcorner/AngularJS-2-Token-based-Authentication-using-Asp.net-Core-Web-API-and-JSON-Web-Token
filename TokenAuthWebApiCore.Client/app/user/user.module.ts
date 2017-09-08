@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
-//import { LoginComponent } from './login.component';
 import { Login } from '../login/login';
 import { Signup } from '../signup/signup';
 import { AuthService } from './auth.service';

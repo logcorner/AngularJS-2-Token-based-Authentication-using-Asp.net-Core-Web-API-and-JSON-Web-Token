@@ -27,6 +27,7 @@
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -89,8 +90,6 @@
     <Content Include="app\login\login.html" />
     <Content Include="app\products\product-list.component.css" />
     <Content Include="app\products\product-list.component.html" />
-    <Content Include="app\shared\star.component.css" />
-    <Content Include="app\shared\star.component.html" />
     <Content Include="app\signup\signup.css" />
     <Content Include="app\signup\signup.html" />
     <Content Include="app\user\login.component.html" />
@@ -136,8 +135,8 @@
     <TypeScriptCompile Include="app\products\product.module.ts" />
     <TypeScriptCompile Include="app\products\product.service.ts" />
     <TypeScriptCompile Include="app\products\product.ts" />
+    <TypeScriptCompile Include="app\shared\common.service.ts" />
     <TypeScriptCompile Include="app\shared\shared.module.ts" />
-    <TypeScriptCompile Include="app\shared\star.component.ts" />
     <TypeScriptCompile Include="app\signup\index.ts" />
     <TypeScriptCompile Include="app\signup\signup.ts" />
     <TypeScriptCompile Include="app\user\auth.profile.ts" />

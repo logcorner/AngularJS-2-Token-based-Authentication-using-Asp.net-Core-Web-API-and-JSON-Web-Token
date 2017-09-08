@@ -16,7 +16,6 @@ export class Signup {
         private router: Router) { }
 
     register(signupForm: NgForm) {
-        //event.preventDefault();
         if (signupForm && signupForm.valid) {
             let userName = signupForm.form.value.userName;
             let password = signupForm.form.value.password;
@@ -25,8 +24,6 @@ export class Signup {
                 .subscribe(
                 response => {
                     debugger;
-                    //localStorage.setItem('id_token', response.json().id_token);
-                    //this.router.navigate(['home']);
                     if (this.authService.redirectUrl) {
                         this.router.navigateByUrl(this.authService.redirectUrl);
                     } else {

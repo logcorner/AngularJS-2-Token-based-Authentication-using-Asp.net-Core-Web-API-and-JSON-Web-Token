@@ -10,15 +10,17 @@ import 'rxjs/add/observable/throw';
 import { Observable } from "rxjs/Observable";
 import { tokenNotExpired } from "angular2-jwt";
 
+import { CommonService } from '../shared/common.service'
+
 @Injectable()
 export class AuthService {
     redirectUrl: string;
-    private baseUrl = 'http://localhost:58834/api/auth';
     errorMessage: string;
     constructor(
         private http: Http,
         private router: Router,
-        private authProfile: AuthProfile) { }
+        private authProfile: AuthProfile,
+        private commonService: CommonService) { }
 
     isAuthenticated() {
         let profile = this.authProfile.getProfile();
@@ -49,14 +51,15 @@ export class AuthService {
             email: userName,
             password: password
         };
-
-        return this.http.post(this.baseUrl + '/token', credentials, options)
+        let url = this.commonService.getBaseUrl() + '/auth/token';
+        debugger;
+        return this.http.post(url, credentials, options)
             .map((response: Response) => {
                 debugger;
                 var userProfile: IProfile = response.json();
                 this.authProfile.setProfile(userProfile);
                 return response.json();
-            }).catch(this.handleError);
+            }).catch(this.commonService.handleFullError);
     }
     register(userName: string, password: string, confirmPassword: string) {
         if (!userName || !password) {
@@ -70,16 +73,12 @@ export class AuthService {
             password: password,
             confirmPassword: confirmPassword
         };
-
-        return this.http.post(this.baseUrl + '/register', credentials, options)
+        let url = this.commonService.getBaseUrl() + '/auth/register';
+        return this.http.post(url, credentials, options)
             .map((response: Response) => {
                 debugger;
                 return response.json();
-            }).catch(this.handleError);
-    }
-    private handleError(error: Response) {
-        debugger;
-        return Observable.throw(error);
+            }).catch(this.commonService.handleFullError);
     }
 
     logout(): void {

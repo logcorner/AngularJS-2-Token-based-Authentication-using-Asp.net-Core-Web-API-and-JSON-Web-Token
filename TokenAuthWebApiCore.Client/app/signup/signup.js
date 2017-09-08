@@ -20,7 +20,6 @@ var Signup = (function () {
     }
     Signup.prototype.register = function (signupForm) {
         var _this = this;
-        //event.preventDefault();
         if (signupForm && signupForm.valid) {
             var userName = signupForm.form.value.userName;
             var password = signupForm.form.value.password;
@@ -28,8 +27,6 @@ var Signup = (function () {
             var result = this.authService.register(userName, password, confirmPassword)
                 .subscribe(function (response) {
                 debugger;
-                //localStorage.setItem('id_token', response.json().id_token);
-                //this.router.navigate(['home']);
                 if (_this.authService.redirectUrl) {
                     _this.router.navigateByUrl(_this.authService.redirectUrl);
                 }

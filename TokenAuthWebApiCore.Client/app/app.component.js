@@ -12,11 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var auth_service_1 = require("./user/auth.service");
-//import { MessageService } from './messages/message.service';
 var AppComponent = (function () {
-    function AppComponent(authService, router
-        //private messageService: MessageService
-    ) {
+    function AppComponent(authService, router) {
         var _this = this;
         this.authService = authService;
         this.router = router;
@@ -36,14 +33,6 @@ var AppComponent = (function () {
             this.loading = false;
         }
     };
-    //displayMessages(): void {
-    //    this.router.navigate([{ outlets: { popup: ['messages'] } }]);
-    //    this.messageService.isDisplayed = true;
-    //}
-    //hideMessages(): void {
-    //    this.router.navigate([{ outlets: { popup: null } }]);
-    //    this.messageService.isDisplayed = false;
-    //}
     AppComponent.prototype.logOut = function () {
         this.authService.logout();
         this.router.navigate(['/products']);
@@ -56,9 +45,7 @@ AppComponent = __decorate([
         templateUrl: './app/app.component.html'
     }),
     __metadata("design:paramtypes", [auth_service_1.AuthService,
-        router_1.Router
-        //private messageService: MessageService
-    ])
+        router_1.Router])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
