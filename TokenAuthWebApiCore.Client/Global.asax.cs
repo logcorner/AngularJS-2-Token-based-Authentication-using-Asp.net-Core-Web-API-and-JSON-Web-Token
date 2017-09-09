@@ -1,6 +1,4 @@
-﻿using System.Web.Http;
-
-namespace TokenAuthWebApiCore.Client
+﻿namespace TokenAuthWebApiCore.Client
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

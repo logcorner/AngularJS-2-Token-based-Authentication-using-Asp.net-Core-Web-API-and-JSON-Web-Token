@@ -14,7 +14,7 @@ export class Login {
         private router: Router) { }
 
     login(loginForm: NgForm) {
-       // event.preventDefault();
+        // event.preventDefault();
         if (loginForm && loginForm.valid) {
             let userName = loginForm.form.value.userName;
             let password = loginForm.form.value.password;
