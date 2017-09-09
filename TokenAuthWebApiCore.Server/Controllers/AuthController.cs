@@ -80,6 +80,7 @@ namespace TokenAuthWebApiCore.Server.Controllers
 
                     var claims = new[]
                     {
+                        new Claim(JwtRegisteredClaimNames.NameId, user.Id),
                         new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                         new Claim(JwtRegisteredClaimNames.Email, user.Email)
