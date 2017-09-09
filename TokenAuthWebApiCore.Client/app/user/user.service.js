@@ -12,9 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
-//import { IProfile } from '../user/index';
 var headers_1 = require("../common/headers");
-var auth_profile_1 = require("./auth.profile");
+var user_profile_1 = require("./user.profile");
+//import { IProfile, UserProfile} from './index';
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/catch");
 require("rxjs/add/observable/throw");
@@ -90,7 +90,7 @@ UserService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http,
         router_1.Router,
-        auth_profile_1.AuthProfile,
+        user_profile_1.UserProfile,
         common_service_1.CommonService])
 ], UserService);
 exports.UserService = UserService;

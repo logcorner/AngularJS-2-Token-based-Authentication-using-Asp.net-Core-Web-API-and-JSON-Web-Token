@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Headers } from '@angular/http';
-import { IProfile } from './user.model';
+//import { IProfile } from './user.model';
+import {
+    IProfile
+} from './index'
 
 @Injectable()
-export class AuthProfile {
+export class UserProfile {
     userProfile: IProfile = {
         token: "",
         expiration: "",

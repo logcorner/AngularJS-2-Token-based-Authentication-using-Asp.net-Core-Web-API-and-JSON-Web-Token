@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var user_service_1 = require("./user/user.service");
-var auth_profile_1 = require("./user/auth.profile");
+var user_profile_1 = require("./user/user.profile");
 var AppComponent = (function () {
     function AppComponent(authService, authProfile, router) {
         var _this = this;
@@ -51,7 +51,7 @@ AppComponent = __decorate([
         templateUrl: './app/app.component.html'
     }),
     __metadata("design:paramtypes", [user_service_1.UserService,
-        auth_profile_1.AuthProfile,
+        user_profile_1.UserProfile,
         router_1.Router])
 ], AppComponent);
 exports.AppComponent = AppComponent;

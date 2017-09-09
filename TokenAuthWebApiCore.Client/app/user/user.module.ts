@@ -2,14 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
-//import { AuthService } from './auth.service';
 import { AuthGuard } from '../common/auth.guard';
-//import { AuthProfile } from './auth.profile';
 import { SharedModule } from '../shared/shared.module';
 
 import {
     UserService,
-    AuthProfile
+    UserProfile
 } from './index'
 
 
@@ -28,7 +26,7 @@ import {
     providers: [
         UserService,
         AuthGuard,
-        AuthProfile
+        UserProfile
     ]
 })
 export class UserModule { }

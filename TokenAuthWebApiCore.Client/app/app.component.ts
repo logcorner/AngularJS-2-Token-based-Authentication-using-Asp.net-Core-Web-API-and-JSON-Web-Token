@@ -3,7 +3,7 @@ import { Router, Event, NavigationStart, NavigationEnd, NavigationError, Navigat
 //import { IProfile, AuthService, AuthProfile } from './user/index';
 import { IProfile } from './user/user.model';
 import { UserService } from './user/user.service';
-import { AuthProfile } from './user/auth.profile';
+import { UserProfile } from './user/user.profile';
 
 @Component({
     selector: 'pm-app',
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
     Profile: IProfile;
 
     constructor(private authService: UserService,
-        private authProfile: AuthProfile,
+        private authProfile: UserProfile,
         private router: Router) {
         router.events.subscribe((routerEvent: Event) => {
             this.checkRouterEvent(routerEvent);

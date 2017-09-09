@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Router } from '@angular/router';
-//import { IProfile } from '../user/index';
+
 import { contentHeaders } from '../common/headers';
-import { AuthProfile } from './auth.profile';
-import {  IProfile } from './user.model';
+import { UserProfile } from './user.profile';
+import { IProfile } from './user.model';
+//import { IProfile, UserProfile} from './index';
 
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
@@ -20,7 +21,7 @@ export class UserService {
     constructor(
         private http: Http,
         private router: Router,
-        private authProfile: AuthProfile,
+        private authProfile: UserProfile,
         private commonService: CommonService) { }
 
     isAuthenticated() {

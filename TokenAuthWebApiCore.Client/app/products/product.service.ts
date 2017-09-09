@@ -9,12 +9,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
 import { IProduct } from './product';
-import { AuthProfile } from '../user/auth.profile'
+import { UserProfile } from '../user/user.profile'
 import { CommonService } from '../shared/common.service'
 @Injectable()
 export class ProductService {
     constructor(private http: Http,
-        private authProfile: AuthProfile,
+        private authProfile: UserProfile,
         private commonService: CommonService) { }
 
     getProducts(): Observable<IProduct[]> {
