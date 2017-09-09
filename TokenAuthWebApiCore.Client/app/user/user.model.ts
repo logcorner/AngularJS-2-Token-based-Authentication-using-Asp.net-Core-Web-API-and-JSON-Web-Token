@@ -1,5 +1,4 @@
 import { Headers } from '@angular/http';
-import { IUser } from './user';
 
 export interface IProfile {
     token: string;
@@ -11,4 +10,9 @@ export interface IProfile {
 interface IClaim {
     type: string;
     value: string;
+}
+
+interface IUser {
+    id: string;
+    userName: string;
 }

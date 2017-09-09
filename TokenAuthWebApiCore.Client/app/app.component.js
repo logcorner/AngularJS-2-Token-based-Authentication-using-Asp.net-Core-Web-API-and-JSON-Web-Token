@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var auth_service_1 = require("./user/auth.service");
+var user_service_1 = require("./user/user.service");
 var auth_profile_1 = require("./user/auth.profile");
 var AppComponent = (function () {
     function AppComponent(authService, authProfile, router) {
@@ -50,7 +50,7 @@ AppComponent = __decorate([
         selector: 'pm-app',
         templateUrl: './app/app.component.html'
     }),
-    __metadata("design:paramtypes", [auth_service_1.AuthService,
+    __metadata("design:paramtypes", [user_service_1.UserService,
         auth_profile_1.AuthProfile,
         router_1.Router])
 ], AppComponent);

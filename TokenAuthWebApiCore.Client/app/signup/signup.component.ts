@@ -3,16 +3,16 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
-import { AuthService } from '../user/auth.service';
+import { UserService } from '../user/user.service';
 
 @Component({
-    templateUrl: './app/signup/signup.html'
+    templateUrl: './app/signup/signup.component.html'
 })
-export class Signup {
+export class SignupComponent {
     errorMessage: string;
     pageTitle = 'signup';
 
-    constructor(private authService: AuthService,
+    constructor(private authService: UserService,
         private router: Router) { }
 
     register(signupForm: NgForm) {

@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Router } from '@angular/router';
-import { IProfile } from './profile';
+//import { IProfile } from '../user/index';
 import { contentHeaders } from '../common/headers';
 import { AuthProfile } from './auth.profile';
+import {  IProfile } from './user.model';
+
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { Observable } from "rxjs/Observable";
-import { tokenNotExpired } from "angular2-jwt";
-
+//import { tokenNotExpired } from "angular2-jwt";
 import { CommonService } from '../shared/common.service'
 
 @Injectable()
-export class AuthService {
+export class UserService {
     redirectUrl: string;
     errorMessage: string;
     constructor(

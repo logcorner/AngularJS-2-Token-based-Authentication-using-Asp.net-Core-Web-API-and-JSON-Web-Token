@@ -13,6 +13,7 @@ var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");
 var home_component_1 = require("./home/home.component");
 var page_not_found_component_1 = require("./page-not-found.component");
+//import { UserModule } from './user/index';
 var user_module_1 = require("./user/user.module");
 var common_service_1 = require("./shared/common.service");
 var AppModule = (function () {

@@ -1,28 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Login } from '../login/login';
-import { Signup } from '../signup/signup';
-import { AuthService } from './auth.service';
+import { LoginComponent } from '../login/login.component';
+import { SignupComponent } from '../signup/signup.component';
+//import { AuthService } from './auth.service';
 import { AuthGuard } from '../common/auth.guard';
-import { AuthProfile } from './auth.profile';
-
+//import { AuthProfile } from './auth.profile';
 import { SharedModule } from '../shared/shared.module';
+
+import {
+    UserService,
+    AuthProfile
+} from './index'
+
 
 @NgModule({
     imports: [
         SharedModule,
         RouterModule.forChild([
-            { path: 'login', component: Login },
-            { path: 'signup', component: Signup },
-            //{ path: 'logOut', component: Login }
-        ])
+            { path: 'login', component: LoginComponent },
+            { path: 'signup', component: SignupComponent },
+            ])
     ],
     declarations: [
-        Login,
-        Signup
+        LoginComponent,
+        SignupComponent
     ],
     providers: [
-        AuthService,
+        UserService,
         AuthGuard,
         AuthProfile
     ]

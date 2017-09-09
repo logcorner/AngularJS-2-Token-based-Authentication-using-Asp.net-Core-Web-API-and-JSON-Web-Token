@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found.component';
+//import { UserModule } from './user/index';
 import { UserModule } from './user/user.module';
 import { CommonService } from './shared/common.service';
 

@@ -87,12 +87,12 @@
     <Content Include="app\app.component.css" />
     <Content Include="app\app.component.html" />
     <Content Include="app\home\home.component.html" />
-    <Content Include="app\login\login.css" />
-    <Content Include="app\login\login.html" />
+    <Content Include="app\login\login.component.css" />
+    <Content Include="app\login\login.component.html" />
     <Content Include="app\products\product-list.component.css" />
     <Content Include="app\products\product-list.component.html" />
-    <Content Include="app\signup\signup.css" />
-    <Content Include="app\signup\signup.html" />
+    <Content Include="app\signup\signup.component.css" />
+    <Content Include="app\signup\signup.component.html" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="styles.css" />
@@ -130,7 +130,7 @@
     <TypeScriptCompile Include="app\common\headers.ts" />
     <TypeScriptCompile Include="app\home\home.component.ts" />
     <TypeScriptCompile Include="app\login\index.ts" />
-    <TypeScriptCompile Include="app\login\login.ts" />
+    <TypeScriptCompile Include="app\login\login.component.ts" />
     <TypeScriptCompile Include="app\page-not-found.component.ts" />
     <TypeScriptCompile Include="app\products\product-list.component.ts" />
     <TypeScriptCompile Include="app\products\product.module.ts" />
@@ -139,13 +139,13 @@
     <TypeScriptCompile Include="app\shared\common.service.ts" />
     <TypeScriptCompile Include="app\shared\shared.module.ts" />
     <TypeScriptCompile Include="app\signup\index.ts" />
-    <TypeScriptCompile Include="app\signup\signup.ts" />
+    <TypeScriptCompile Include="app\signup\signup.component.ts" />
     <TypeScriptCompile Include="app\user\auth.profile.ts" />
-    <TypeScriptCompile Include="app\user\auth.service.ts" />
+    <TypeScriptCompile Include="app\user\user.service.ts" />
     <TypeScriptCompile Include="app\main.ts" />
-    <TypeScriptCompile Include="app\user\profile.ts" />
+    <TypeScriptCompile Include="app\user\index.ts" />
+    <TypeScriptCompile Include="app\user\user.model.ts" />
     <TypeScriptCompile Include="app\user\user.module.ts" />
-    <TypeScriptCompile Include="app\user\user.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

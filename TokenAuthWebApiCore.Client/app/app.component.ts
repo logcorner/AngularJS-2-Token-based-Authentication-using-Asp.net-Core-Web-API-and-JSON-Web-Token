@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError, NavigationCancel } from '@angular/router';
-
-import { AuthService } from './user/auth.service';
+//import { IProfile, AuthService, AuthProfile } from './user/index';
+import { IProfile } from './user/user.model';
+import { UserService } from './user/user.service';
 import { AuthProfile } from './user/auth.profile';
-import { IProfile } from './user/profile';
 
 @Component({
     selector: 'pm-app',
@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
     loading: boolean = true;
     Profile: IProfile;
 
-    constructor(private authService: AuthService,
+    constructor(private authService: UserService,
         private authProfile: AuthProfile,
         private router: Router) {
         router.events.subscribe((routerEvent: Event) => {

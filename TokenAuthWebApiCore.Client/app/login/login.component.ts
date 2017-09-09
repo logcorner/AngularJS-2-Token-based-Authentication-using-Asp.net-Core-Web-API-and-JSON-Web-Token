@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../user/auth.service';
+import { UserService } from '../user/user.service';
 
 @Component({
-    templateUrl: './app/login/login.html'
+    templateUrl: './app/login/login.component.html'
 })
-export class Login {
+export class LoginComponent {
     errorMessage: string;
     pageTitle = 'Log In';
 
-    constructor(private authService: AuthService,
+    constructor(private authService: UserService,
         private router: Router) { }
 
     login(loginForm: NgForm) {

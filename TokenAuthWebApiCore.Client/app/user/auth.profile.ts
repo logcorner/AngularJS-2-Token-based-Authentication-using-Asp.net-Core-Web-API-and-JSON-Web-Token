@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Headers } from '@angular/http';
-import { IProfile } from './profile';
+import { IProfile } from './user.model';
 
 @Injectable()
 export class AuthProfile {

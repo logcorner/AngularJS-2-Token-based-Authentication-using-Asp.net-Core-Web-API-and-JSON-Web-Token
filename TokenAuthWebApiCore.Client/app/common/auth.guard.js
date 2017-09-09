@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var auth_service_1 = require("../user/auth.service");
+var user_service_1 = require("../user/user.service");
 var AuthGuard = (function () {
     function AuthGuard(router, authService) {
         this.router = router;
@@ -30,7 +30,7 @@ var AuthGuard = (function () {
 }());
 AuthGuard = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [router_1.Router, auth_service_1.AuthService])
+    __metadata("design:paramtypes", [router_1.Router, user_service_1.UserService])
 ], AuthGuard);
 exports.AuthGuard = AuthGuard;
 //# sourceMappingURL=auth.guard.js.map
