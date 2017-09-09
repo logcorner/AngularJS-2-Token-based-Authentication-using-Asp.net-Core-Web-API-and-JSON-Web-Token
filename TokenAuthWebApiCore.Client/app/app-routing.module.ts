@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
 import { PageNotFoundComponent } from './page-not-found.component';
 import { AuthGuard } from './common/auth.guard';
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
-
             {
                 path: 'products',
                 canActivate: [AuthGuard],

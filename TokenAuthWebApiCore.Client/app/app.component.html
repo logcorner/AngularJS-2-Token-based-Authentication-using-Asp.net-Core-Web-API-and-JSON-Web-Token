@@ -15,7 +15,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li *ngIf="authService.isAuthenticated()">
-                        <!--<a>Welcome {{ authService.currentUser.userName }}</a>-->
+                        <a>Welcome {{ Profile.currentUser.userName }}</a>
                     </li>
                     <li *ngIf="!authService.isAuthenticated()">
                         <a [routerLink]="['/login']">Log In</a>
@@ -24,7 +24,7 @@
                         <a [routerLink]="['/signup']">Register</a>
                     </li>
                     <li *ngIf="authService.isAuthenticated()">
-                        <a (click)="logOut()">Log Out</a>
+                        <span> <a (click)="logOut()">Log Out</a></span>
                     </li>
                 </ul>
             </div>

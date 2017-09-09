@@ -86,13 +86,13 @@
   <ItemGroup>
     <Content Include="app\app.component.css" />
     <Content Include="app\app.component.html" />
+    <Content Include="app\home\welcome.component.html" />
     <Content Include="app\login\login.css" />
     <Content Include="app\login\login.html" />
     <Content Include="app\products\product-list.component.css" />
     <Content Include="app\products\product-list.component.html" />
     <Content Include="app\signup\signup.css" />
     <Content Include="app\signup\signup.html" />
-    <Content Include="app\user\login.component.html" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="styles.css" />
@@ -101,7 +101,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -111,6 +110,8 @@
     <Content Include="packages.config" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -118,7 +119,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
@@ -128,6 +128,7 @@
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\common\auth.guard.ts" />
     <TypeScriptCompile Include="app\common\headers.ts" />
+    <TypeScriptCompile Include="app\home\welcome.component.ts" />
     <TypeScriptCompile Include="app\login\index.ts" />
     <TypeScriptCompile Include="app\login\login.ts" />
     <TypeScriptCompile Include="app\page-not-found.component.ts" />
@@ -141,7 +142,6 @@
     <TypeScriptCompile Include="app\signup\signup.ts" />
     <TypeScriptCompile Include="app\user\auth.profile.ts" />
     <TypeScriptCompile Include="app\user\auth.service.ts" />
-    <TypeScriptCompile Include="app\user\login.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\user\profile.ts" />
     <TypeScriptCompile Include="app\user\user.module.ts" />

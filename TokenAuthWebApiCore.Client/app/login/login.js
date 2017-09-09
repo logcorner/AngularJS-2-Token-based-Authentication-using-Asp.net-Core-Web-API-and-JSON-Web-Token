@@ -1,7 +1,3 @@
-//import { Component } from '@angular/core';
-//import { Router } from '@angular/router';
-//import { Http } from '@angular/http';
-//import { contentHeaders } from '../common/headers';
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13,40 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-////const styles = require('./login.css');
-////const template = require('./login.html');
-////@Component({
-////  selector: 'login',
-////  template: template,
-////  styles: [ styles ]
-////})
-//@Component({
-//	templateUrl: './app/login/login.html',
-//	styleUrls: ['app/login/login.css']
-//})
-//export class Login {
-//	constructor(public router: Router, public http: Http) {
-//	}
-//	login(event: any, username: string, password: string) {
-//		event.preventDefault();
-//		let body = JSON.stringify({ username, password });
-//		this.http.post('http://localhost:3001/sessions/create', body, { headers: contentHeaders })
-//			.subscribe(
-//			response => {
-//				localStorage.setItem('id_token', response.json().id_token);
-//				this.router.navigate(['home']);
-//			},
-//			error => {
-//				alert(error.text());
-//				console.log(error.text());
-//			}
-//			);
-//	}
-//	signup(event: any) {
-//		event.preventDefault();
-//		this.router.navigate(['signup']);
-//	}
-//}
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var auth_service_1 = require("../user/auth.service");

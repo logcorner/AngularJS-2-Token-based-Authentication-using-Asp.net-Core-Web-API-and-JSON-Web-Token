@@ -12,17 +12,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var auth_service_1 = require("./user/auth.service");
+var auth_profile_1 = require("./user/auth.profile");
 var AppComponent = (function () {
-    function AppComponent(authService, router) {
-        var _this = this;
+    function AppComponent(authService, authProfile, router) {
         this.authService = authService;
+        this.authProfile = authProfile;
         this.router = router;
         this.pageTitle = 'Acme Product Management';
         this.loading = true;
-        router.events.subscribe(function (routerEvent) {
-            _this.checkRouterEvent(routerEvent);
-        });
+        //router.events.subscribe((routerEvent: Event) => {
+        //    this.checkRouterEvent(routerEvent);
+        //});
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.Profile = this.authProfile.userProfile;
+    };
     AppComponent.prototype.checkRouterEvent = function (routerEvent) {
         if (routerEvent instanceof router_1.NavigationStart) {
             this.loading = true;
@@ -35,7 +39,9 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.logOut = function () {
         this.authService.logout();
-        this.router.navigate(['/products']);
+        debugger;
+        //this.router.navigate(['products']);
+        this.router.navigateByUrl('/');
     };
     return AppComponent;
 }());
@@ -45,6 +51,7 @@ AppComponent = __decorate([
         templateUrl: './app/app.component.html'
     }),
     __metadata("design:paramtypes", [auth_service_1.AuthService,
+        auth_profile_1.AuthProfile,
         router_1.Router])
 ], AppComponent);
 exports.AppComponent = AppComponent;
