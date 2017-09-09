@@ -14,7 +14,7 @@ import { SharedModule } from '../shared/shared.module';
         RouterModule.forChild([
             { path: 'login', component: Login },
             { path: 'signup', component: Signup },
-            { path: 'logOut', component: Login }
+            //{ path: 'logOut', component: Login }
         ])
     ],
     declarations: [

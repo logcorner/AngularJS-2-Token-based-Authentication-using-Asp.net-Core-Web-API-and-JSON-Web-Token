@@ -43,11 +43,12 @@ export class AuthProfile {
     resetProfile(): IProfile {
         sessionStorage.removeItem('access_token');
         sessionStorage.removeItem('expires_in');
-        return {
+        this.userProfile = {
             token: "",
             expiration: "",
             currentUser: null,
             claims: null
         };
+        return this.userProfile;
     }
 }

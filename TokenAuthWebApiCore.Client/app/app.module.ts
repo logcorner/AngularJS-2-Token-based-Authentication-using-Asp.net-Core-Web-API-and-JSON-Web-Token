@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { UserModule } from './user/user.module';
 import { CommonService } from './shared/common.service';
@@ -16,6 +17,7 @@ import { CommonService } from './shared/common.service';
     ],
     declarations: [
         AppComponent,
+        HomeComponent,
         PageNotFoundComponent
     ],
     providers: [

@@ -17,9 +17,9 @@ export class AppComponent implements OnInit {
     constructor(private authService: AuthService,
         private authProfile: AuthProfile,
         private router: Router) {
-        //router.events.subscribe((routerEvent: Event) => {
-        //    this.checkRouterEvent(routerEvent);
-        //});
+        router.events.subscribe((routerEvent: Event) => {
+            this.checkRouterEvent(routerEvent);
+        });
     }
     ngOnInit(): void {
         this.Profile = this.authProfile.userProfile;
@@ -40,7 +40,6 @@ export class AppComponent implements OnInit {
     logOut(): void {
         this.authService.logout();
         debugger;
-        //this.router.navigate(['products']);
-        this.router.navigateByUrl('/');
+             this.router.navigateByUrl('/home');
     }
 }

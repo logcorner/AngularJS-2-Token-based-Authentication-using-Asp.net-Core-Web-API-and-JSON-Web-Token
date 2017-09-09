@@ -86,7 +86,7 @@
   <ItemGroup>
     <Content Include="app\app.component.css" />
     <Content Include="app\app.component.html" />
-    <Content Include="app\home\welcome.component.html" />
+    <Content Include="app\home\home.component.html" />
     <Content Include="app\login\login.css" />
     <Content Include="app\login\login.html" />
     <Content Include="app\products\product-list.component.css" />
@@ -128,7 +128,7 @@
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\common\auth.guard.ts" />
     <TypeScriptCompile Include="app\common\headers.ts" />
-    <TypeScriptCompile Include="app\home\welcome.component.ts" />
+    <TypeScriptCompile Include="app\home\home.component.ts" />
     <TypeScriptCompile Include="app\login\index.ts" />
     <TypeScriptCompile Include="app\login\login.ts" />
     <TypeScriptCompile Include="app\page-not-found.component.ts" />
