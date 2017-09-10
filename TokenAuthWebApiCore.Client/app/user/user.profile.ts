@@ -11,7 +11,7 @@ export class UserProfile {
     userProfile: IProfile = {
         token: "",
         expiration: "",
-        currentUser: { id: '', userName: '' },
+        currentUser: { id: '', userName: '',email :'' },
         claims: null
     };
     constructor(private router: Router) {
@@ -36,6 +36,10 @@ export class UserProfile {
             //debugger;
             this.userProfile.token = accessToken;
             this.userProfile.expiration = sessionStorage.getItem('expires_in');
+            if (this.userProfile.currentUser == null)
+            {
+                this.userProfile.currentUser = { id: '', userName: '', email :'' } 
+            }
             this.userProfile.currentUser.id = sessionStorage.getItem('nameid');
             this.userProfile.currentUser.userName = sessionStorage.getItem('userName');
         }
