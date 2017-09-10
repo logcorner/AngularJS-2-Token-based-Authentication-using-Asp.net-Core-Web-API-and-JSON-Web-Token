@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
 
     logOut(): void {
         this.authService.logout();
-        debugger;
+
         this.router.navigateByUrl('/home');
     }
 }

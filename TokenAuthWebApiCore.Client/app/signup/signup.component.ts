@@ -23,7 +23,6 @@ export class SignupComponent {
             var result = this.authService.register(userName, password, confirmPassword)
                 .subscribe(
                 response => {
-                    debugger;
                     if (this.authService.redirectUrl) {
                         this.router.navigateByUrl(this.authService.redirectUrl);
                     } else {
@@ -35,10 +34,8 @@ export class SignupComponent {
                     this.errorMessage = error.statusText + ' ' +
 
                         error.text();
-                    debugger;
                 }
                 );
-            debugger;
         } else {
             this.errorMessage = 'Please enter a user name and password.';
         };

@@ -25,7 +25,6 @@ var LoginComponent = (function () {
             var userName = loginForm.form.value.userName;
             var password = loginForm.form.value.password;
             var result = this.authService.login(userName, password).subscribe(function (response) {
-                debugger;
                 if (_this.authService.redirectUrl) {
                     _this.router.navigateByUrl(_this.authService.redirectUrl);
                 }
@@ -36,7 +35,6 @@ var LoginComponent = (function () {
                 var results = error['_body'];
                 _this.errorMessage = error.statusText + ' ' +
                     error.text();
-                debugger;
             });
         }
         else {

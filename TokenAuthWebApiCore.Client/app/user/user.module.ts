@@ -10,14 +10,13 @@ import {
     UserProfile
 } from './index'
 
-
 @NgModule({
     imports: [
         SharedModule,
         RouterModule.forChild([
             { path: 'login', component: LoginComponent },
             { path: 'signup', component: SignupComponent },
-            ])
+        ])
     ],
     declarations: [
         LoginComponent,

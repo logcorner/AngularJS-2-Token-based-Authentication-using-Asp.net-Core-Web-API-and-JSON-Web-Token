@@ -132,10 +132,11 @@
     <TypeScriptCompile Include="app\login\index.ts" />
     <TypeScriptCompile Include="app\login\login.component.ts" />
     <TypeScriptCompile Include="app\page-not-found.component.ts" />
+    <TypeScriptCompile Include="app\products\index.ts" />
     <TypeScriptCompile Include="app\products\product-list.component.ts" />
     <TypeScriptCompile Include="app\products\product.module.ts" />
     <TypeScriptCompile Include="app\products\product.service.ts" />
-    <TypeScriptCompile Include="app\products\product.ts" />
+    <TypeScriptCompile Include="app\products\product.model.ts" />
     <TypeScriptCompile Include="app\shared\common.service.ts" />
     <TypeScriptCompile Include="app\shared\shared.module.ts" />
     <TypeScriptCompile Include="app\signup\index.ts" />

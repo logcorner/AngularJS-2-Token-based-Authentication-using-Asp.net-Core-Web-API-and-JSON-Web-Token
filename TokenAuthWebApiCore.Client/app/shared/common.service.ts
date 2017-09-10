@@ -14,12 +14,10 @@ export class CommonService {
     }
 
     handleFullError(error: Response) {
-        debugger;
         return Observable.throw(error);
     }
 
     handleError(error: Response): Observable<any> {
-        debugger;
         let errorMessage = error.json();
         console.error(errorMessage);
         return Observable.throw(errorMessage.error || 'Server error');

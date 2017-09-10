@@ -35,3 +35,7 @@
 /TokenAuthWebApiCore.Client/app/user/user.module.js
 /TokenAuthWebApiCore.Client/app/user/user.js.map
 /TokenAuthWebApiCore.Client/app/user/user.js
+/TokenAuthWebApiCore.Client/app/products/index.js.map
+/TokenAuthWebApiCore.Client/app/products/index.js
+*.js
+*.map

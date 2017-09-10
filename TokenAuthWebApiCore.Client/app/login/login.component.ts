@@ -20,8 +20,6 @@ export class LoginComponent {
             let password = loginForm.form.value.password;
             var result = this.authService.login(userName, password).subscribe(
                 response => {
-                    debugger;
-
                     if (this.authService.redirectUrl) {
                         this.router.navigateByUrl(this.authService.redirectUrl);
                     } else {
@@ -33,7 +31,6 @@ export class LoginComponent {
                     this.errorMessage = error.statusText + ' ' +
 
                         error.text();
-                    debugger;
                 });
         } else {
             this.errorMessage = 'Please enter a user name and password.';

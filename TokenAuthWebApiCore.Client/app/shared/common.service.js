@@ -20,11 +20,9 @@ var CommonService = (function () {
         return this.baseUrl;
     };
     CommonService.prototype.handleFullError = function (error) {
-        debugger;
         return Observable_1.Observable.throw(error);
     };
     CommonService.prototype.handleError = function (error) {
-        debugger;
         var errorMessage = error.json();
         console.error(errorMessage);
         return Observable_1.Observable.throw(errorMessage.error || 'Server error');

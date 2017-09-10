@@ -40,7 +40,6 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.logOut = function () {
         this.authService.logout();
-        debugger;
         this.router.navigateByUrl('/home');
     };
     return AppComponent;

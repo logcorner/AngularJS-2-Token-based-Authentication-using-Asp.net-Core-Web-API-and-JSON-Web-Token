@@ -8,9 +8,10 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
-import { IProduct } from './product';
+import { IProduct } from './product.model';
 import { UserProfile } from '../user/user.profile'
 import { CommonService } from '../shared/common.service'
+
 @Injectable()
 export class ProductService {
     constructor(private http: Http,
@@ -19,7 +20,7 @@ export class ProductService {
 
     getProducts(): Observable<IProduct[]> {
         let url = this.commonService.getBaseUrl() + '/product';
-        debugger;
+
         let options = null;
         let profile = this.authProfile.getProfile();
 

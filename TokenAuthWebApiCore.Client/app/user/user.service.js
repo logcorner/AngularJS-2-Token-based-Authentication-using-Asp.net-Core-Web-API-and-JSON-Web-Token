@@ -12,14 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
-var headers_1 = require("../common/headers");
-var user_profile_1 = require("./user.profile");
-//import { IProfile, UserProfile} from './index';
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/catch");
 require("rxjs/add/observable/throw");
-//import { tokenNotExpired } from "angular2-jwt";
 var common_service_1 = require("../shared/common.service");
+var headers_1 = require("../common/headers");
+var user_profile_1 = require("./user.profile");
 var UserService = (function () {
     function UserService(http, router, authProfile, commonService) {
         this.http = http;
@@ -55,10 +53,8 @@ var UserService = (function () {
             password: password
         };
         var url = this.commonService.getBaseUrl() + '/auth/token';
-        debugger;
         return this.http.post(url, credentials, options)
             .map(function (response) {
-            debugger;
             var userProfile = response.json();
             _this.authProfile.setProfile(userProfile);
             return response.json();
@@ -77,7 +73,6 @@ var UserService = (function () {
         var url = this.commonService.getBaseUrl() + '/auth/register';
         return this.http.post(url, credentials, options)
             .map(function (response) {
-            debugger;
             return response.json();
         }).catch(this.commonService.handleFullError);
     };

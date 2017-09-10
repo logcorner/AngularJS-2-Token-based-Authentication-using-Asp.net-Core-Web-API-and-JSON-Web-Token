@@ -18,7 +18,6 @@ var AuthGuard = (function () {
         this.authService = authService;
     }
     AuthGuard.prototype.canActivate = function (route, state) {
-        debugger;
         if (this.authService.isAuthorized()) {
             return true;
         }

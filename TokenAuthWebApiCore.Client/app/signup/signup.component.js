@@ -26,7 +26,6 @@ var SignupComponent = (function () {
             var confirmPassword = signupForm.form.value.confirmPassword;
             var result = this.authService.register(userName, password, confirmPassword)
                 .subscribe(function (response) {
-                debugger;
                 if (_this.authService.redirectUrl) {
                     _this.router.navigateByUrl(_this.authService.redirectUrl);
                 }
@@ -37,9 +36,7 @@ var SignupComponent = (function () {
                 var results = error['_body'];
                 _this.errorMessage = error.statusText + ' ' +
                     error.text();
-                debugger;
             });
-            debugger;
         }
         else {
             this.errorMessage = 'Please enter a user name and password.';
