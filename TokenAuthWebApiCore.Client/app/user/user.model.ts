@@ -1,5 +1,3 @@
-import { Headers } from '@angular/http';
-
 export interface IProfile {
     token: string;
     expiration: string;

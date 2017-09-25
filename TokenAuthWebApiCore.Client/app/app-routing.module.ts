@@ -16,7 +16,7 @@ import { AuthGuard } from './common/auth.guard';
             },
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: '**', component: PageNotFoundComponent }
-        ])
+        ], { useHash: true })
     ],
 
     exports: [RouterModule]

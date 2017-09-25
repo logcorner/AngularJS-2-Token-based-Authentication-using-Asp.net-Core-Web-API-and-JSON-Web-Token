@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, Event, NavigationStart, NavigationEnd, NavigationError, NavigationCancel } from '@angular/router';
-//import { IProfile, AuthService, AuthProfile } from './user/index';
+import {
+    Router,
+} from '@angular/router';
 import { IProfile } from './user/user.model';
 import { UserService } from './user/user.service';
 import { UserProfile } from './user/user.profile';
@@ -17,24 +18,9 @@ export class AppComponent implements OnInit {
     constructor(private authService: UserService,
         private authProfile: UserProfile,
         private router: Router) {
-        router.events.subscribe((routerEvent: Event) => {
-            this.checkRouterEvent(routerEvent);
-        });
     }
     ngOnInit(): void {
         this.Profile = this.authProfile.userProfile;
-    }
-
-    checkRouterEvent(routerEvent: Event): void {
-        if (routerEvent instanceof NavigationStart) {
-            this.loading = true;
-        }
-
-        if (routerEvent instanceof NavigationEnd ||
-            routerEvent instanceof NavigationCancel ||
-            routerEvent instanceof NavigationError) {
-            this.loading = false;
-        }
     }
 
     logOut(): void {

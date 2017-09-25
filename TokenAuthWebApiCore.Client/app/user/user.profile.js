@@ -22,7 +22,6 @@ var UserProfile = (function () {
         };
     }
     UserProfile.prototype.setProfile = function (profile) {
-        debugger;
         var nameid = profile.claims.filter(function (p) { return p.type == 'nameid'; })[0].value;
         var userName = profile.claims.filter(function (p) { return p.type == 'sub'; })[0].value;
         var email = profile.claims.filter(function (p) { return p.type == 'email'; })[0].value;
@@ -36,7 +35,6 @@ var UserProfile = (function () {
         if (authorizationOnly === void 0) { authorizationOnly = false; }
         var accessToken = sessionStorage.getItem('access_token');
         if (accessToken) {
-            //debugger;
             this.userProfile.token = accessToken;
             this.userProfile.expiration = sessionStorage.getItem('expires_in');
             if (this.userProfile.currentUser == null) {

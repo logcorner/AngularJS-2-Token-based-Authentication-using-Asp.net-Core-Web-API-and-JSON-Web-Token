@@ -15,28 +15,14 @@ var user_service_1 = require("./user/user.service");
 var user_profile_1 = require("./user/user.profile");
 var AppComponent = (function () {
     function AppComponent(authService, authProfile, router) {
-        var _this = this;
         this.authService = authService;
         this.authProfile = authProfile;
         this.router = router;
         this.pageTitle = 'Acme Product Management';
         this.loading = true;
-        router.events.subscribe(function (routerEvent) {
-            _this.checkRouterEvent(routerEvent);
-        });
     }
     AppComponent.prototype.ngOnInit = function () {
         this.Profile = this.authProfile.userProfile;
-    };
-    AppComponent.prototype.checkRouterEvent = function (routerEvent) {
-        if (routerEvent instanceof router_1.NavigationStart) {
-            this.loading = true;
-        }
-        if (routerEvent instanceof router_1.NavigationEnd ||
-            routerEvent instanceof router_1.NavigationCancel ||
-            routerEvent instanceof router_1.NavigationError) {
-            this.loading = false;
-        }
     };
     AppComponent.prototype.logOut = function () {
         this.authService.logout();

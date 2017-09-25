@@ -20,7 +20,6 @@ var LoginComponent = (function () {
     }
     LoginComponent.prototype.login = function (loginForm) {
         var _this = this;
-        // event.preventDefault();
         if (loginForm && loginForm.valid) {
             var userName = loginForm.form.value.userName;
             var password = loginForm.form.value.password;
