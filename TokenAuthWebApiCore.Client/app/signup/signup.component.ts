@@ -16,6 +16,7 @@ export class SignupComponent {
         private router: Router) { }
 
     register(signupForm: NgForm) {
+        debugger;
         if (signupForm && signupForm.valid) {
             let userName = signupForm.form.value.userName;
             let password = signupForm.form.value.password;
@@ -23,6 +24,7 @@ export class SignupComponent {
             var result = this.authService.register(userName, password, confirmPassword)
                 .subscribe(
                 response => {
+                    debugger;
                     if (this.authService.redirectUrl) {
                         this.router.navigateByUrl(this.authService.redirectUrl);
                     } else {
@@ -30,6 +32,7 @@ export class SignupComponent {
                     }
                 },
                 error => {
+                    debugger;
                     var results = error['_body'];
                     this.errorMessage = error.statusText + ' ' +
 
@@ -37,6 +40,7 @@ export class SignupComponent {
                 }
                 );
         } else {
+            debugger;
             this.errorMessage = 'Please enter a user name and password.';
         };
     }

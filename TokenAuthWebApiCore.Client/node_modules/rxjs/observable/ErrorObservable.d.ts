@@ -1,6 +1,7 @@
-import { Scheduler } from '../Scheduler';
+import { IScheduler } from '../Scheduler';
 import { Observable } from '../Observable';
 import { TeardownLogic } from '../Subscription';
+import { Subscriber } from '../Subscriber';
 export interface DispatchArg {
     error: any;
     subscriber: any;
@@ -10,8 +11,8 @@ export interface DispatchArg {
  * @extends {Ignored}
  * @hide true
  */
-export declare class ErrorObservable<T> extends Observable<any> {
-    error: T;
+export declare class ErrorObservable extends Observable<any> {
+    error: any;
     private scheduler;
     /**
      * Creates an Observable that emits no items to the Observer and immediately
@@ -30,7 +31,7 @@ export declare class ErrorObservable<T> extends Observable<any> {
      * var result = Rx.Observable.throw(new Error('oops!')).startWith(7);
      * result.subscribe(x => console.log(x), e => console.error(e));
      *
-     * @example <caption>Map and flattens numbers to the sequence 'a', 'b', 'c', but throw an error for 13</caption>
+     * @example <caption>Map and flatten numbers to the sequence 'a', 'b', 'c', but throw an error for 13</caption>
      * var interval = Rx.Observable.interval(1000);
      * var result = interval.mergeMap(x =>
      *   x === 13 ?
@@ -45,7 +46,7 @@ export declare class ErrorObservable<T> extends Observable<any> {
      * @see {@link of}
      *
      * @param {any} error The particular Error to pass to the error notification.
-     * @param {Scheduler} [scheduler] A {@link Scheduler} to use for scheduling
+     * @param {Scheduler} [scheduler] A {@link IScheduler} to use for scheduling
      * the emission of the error notification.
      * @return {Observable} An error Observable: emits only the error notification
      * using the given error argument.
@@ -53,8 +54,8 @@ export declare class ErrorObservable<T> extends Observable<any> {
      * @name throw
      * @owner Observable
      */
-    static create<T>(error: T, scheduler?: Scheduler): ErrorObservable<T>;
+    static create(error: any, scheduler?: IScheduler): ErrorObservable;
     static dispatch(arg: DispatchArg): void;
-    constructor(error: T, scheduler?: Scheduler);
-    protected _subscribe(subscriber: any): TeardownLogic;
+    constructor(error: any, scheduler?: IScheduler);
+    protected _subscribe(subscriber: Subscriber<any>): TeardownLogic;
 }
