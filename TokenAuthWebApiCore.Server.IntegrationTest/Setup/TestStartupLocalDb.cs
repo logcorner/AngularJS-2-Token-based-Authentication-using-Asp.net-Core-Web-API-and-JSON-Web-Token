@@ -68,7 +68,7 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest.Setup
             using (var context = new SecurityContext(optionsBuilder.Options))
             {
                 context.Database.Migrate();
-                //context.Seed();
+
                 context.SaveChanges();
             }
         }

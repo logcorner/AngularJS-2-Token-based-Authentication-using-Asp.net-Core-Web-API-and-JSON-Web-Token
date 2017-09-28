@@ -20,29 +20,25 @@ var SignupComponent = (function () {
     }
     SignupComponent.prototype.register = function (signupForm) {
         var _this = this;
-        debugger;
         if (signupForm && signupForm.valid) {
             var userName = signupForm.form.value.userName;
             var password = signupForm.form.value.password;
             var confirmPassword = signupForm.form.value.confirmPassword;
             var result = this.authService.register(userName, password, confirmPassword)
                 .subscribe(function (response) {
-                debugger;
                 if (_this.authService.redirectUrl) {
                     _this.router.navigateByUrl(_this.authService.redirectUrl);
                 }
                 else {
-                    _this.router.navigate(['/products']);
+                    _this.router.navigate(['/']);
                 }
             }, function (error) {
-                debugger;
                 var results = error['_body'];
                 _this.errorMessage = error.statusText + ' ' +
                     error.text();
             });
         }
         else {
-            debugger;
             this.errorMessage = 'Please enter a user name and password.';
         }
         ;

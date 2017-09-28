@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-//import 'rxjs/add/observable/throw';
-//import { Observable } from "rxjs/Observable";
 
 import { CommonService } from '../shared/common.service';
 import { contentHeaders } from '../common/headers';
@@ -40,13 +38,12 @@ export class UserService {
     }
 
     login(userName: string, password: string) {
-        debugger;
         if (!userName || !password) {
             return;
         }
         let options = new RequestOptions(
             { headers: contentHeaders });
-        debugger;
+
         var credentials = {
             grant_type: 'password',
             email: userName,

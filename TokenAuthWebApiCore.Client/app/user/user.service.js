@@ -15,8 +15,6 @@ var router_1 = require("@angular/router");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/catch");
-//import 'rxjs/add/observable/throw';
-//import { Observable } from "rxjs/Observable";
 var common_service_1 = require("../shared/common.service");
 var headers_1 = require("../common/headers");
 var user_profile_1 = require("./user.profile");
@@ -45,12 +43,10 @@ var UserService = (function () {
     };
     UserService.prototype.login = function (userName, password) {
         var _this = this;
-        debugger;
         if (!userName || !password) {
             return;
         }
         var options = new http_1.RequestOptions({ headers: headers_1.contentHeaders });
-        debugger;
         var credentials = {
             grant_type: 'password',
             email: userName,
