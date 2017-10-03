@@ -5,11 +5,11 @@ import { UserService } from './user/user.service';
 import { UserProfile } from './user/user.profile';
 
 @Component({
-    selector: 'pm-app',
+    selector: 'jwt-app',
     templateUrl: './app/app.component.html'
 })
 export class AppComponent implements OnInit {
-    pageTitle: string = 'Acme Product Management';
+    pageTitle: string = 'Welcome to AngularJS 2 Token based Authentication using Asp.net Core Web API and JSON Web Token';
     loading: boolean = true;
     Profile: IProfile;
 

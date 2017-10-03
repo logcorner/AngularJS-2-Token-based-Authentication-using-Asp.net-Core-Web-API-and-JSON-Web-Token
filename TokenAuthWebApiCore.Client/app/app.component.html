@@ -16,7 +16,7 @@
                     <li *ngIf="authService.isAuthenticated()">
                         <a>Welcome {{ Profile.currentUser.userName }}</a>
                     </li>
-                    <li *ngIf="!authService.isAuthenticated()">
+                    <li *ngIf="!authService.isAuthenticated()" >
                         <a [routerLink]="['/login']">Log In</a>
                     </li>
                     <li *ngIf="!authService.isAuthenticated()">
