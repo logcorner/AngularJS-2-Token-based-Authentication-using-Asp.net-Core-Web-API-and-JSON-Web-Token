@@ -1,5 +1,5 @@
 # AngularJS-2-Token-based-Authentication-using-Asp.net-Core-Web-API-and-JSON-Web-Token
-
+http://logcorner.com/angular2-token-based-authentication-using-asp-net-core-web-api-and-json-web-token/
 ASP.NET Core Identity is designed to enable us to easily use a number of different storage providers for our ASP.NET applications. We can use the supplied identity providers that are included with the .NET Framework, or we can implement our own providers.
 
 In this tutorial, we will  build a Token-Based Authentication using ASP.NET Core Identity , ASP.NET Core Web API and Angular2
@@ -937,9 +937,7 @@ export class UserService {
         this.authProfile.resetProfile();
     }
 }
-Source Code is available here
 
-SEE IT IN ACTION
 
  
 
